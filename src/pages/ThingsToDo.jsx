@@ -16,12 +16,12 @@ export default function ThingsToDo() {
   }}
 >
   ← Back
-</button>        <h2 className="title">Things to Do Around Kangaroo Valley</h2>
+</button>        
+<h2 className="title">Things to Do Around Kangaroo Valley</h2>
 
         <p>
           Kangaroo Valley is a slice of paradise surrounded by rolling hills,
-          waterfalls, and winding country roads. If you have more time, why not
-          make a mini holiday out of it! 
+          waterfalls, and winding country roads. If you’re staying a little longer, it’s the perfect excuse to turn the weekend into a mini getaway.
         </p>
 
         <h3 className="subtitle">Nature & Adventure</h3>
@@ -75,9 +75,6 @@ export default function ThingsToDo() {
           <li>Head south to <strong>Seven Mile Beach</strong> for a coastal walk</li>
           <li>Stop at <strong>Belmore Falls</strong> for breathtaking views</li>
         </ul>
-
-        <p style={{ marginTop: "1rem" }}>
-        </p>
       </section>
     </main>
   );

@@ -9,13 +9,7 @@ export default function Weekend() {
         Pick a day to see the details.
       </p>
 
-      <div className="home-grid">
-        <Link className="home-card" to="/weekend/schedule/friday">
-          <h3>Friday</h3>
-          <p>Welcome drinks & dinner at The Friendly Inn</p>
-          <span>→</span>
-        </Link>
-        <Link className="home-card" to="/weekend/schedule/saturday">
+<div className="home-grid weekend-grid">        <Link className="home-card" to="/weekend/schedule/saturday">
           <h3>Saturday</h3>
           <p>Ceremony, reception & dancing under the gums</p>
           <span>→</span>

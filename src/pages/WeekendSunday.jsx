@@ -20,13 +20,7 @@ export default function WeekendSunday() {
         <h2 className="title">Sunday · Farewell Breakfast</h2>
 
         <p>
-          <strong>
-            <a
-              
-            >
-              Wildwood, Kangaroo Valley
-            </a>
-          </strong>
+           <strong>Wildwood, Kangaroo Valley</strong>
           <br />
           10:00 am – 2:00 pm
         </p>

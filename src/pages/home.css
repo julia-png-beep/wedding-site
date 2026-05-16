@@ -112,32 +112,6 @@ h2 {
   margin-top: 6px;
 }
 
-/* Force the Weekend tiles into a single row */
-.container.home .block .home-grid.weekend-grid {
-  display: flex !important;
-  gap: 24px;
-  overflow-x: auto;              /* allows scroll on narrow screens */
-  -webkit-overflow-scrolling: touch;
-  scroll-snap-type: x mandatory; /* nice snap scroll */
-  padding-bottom: 8px;
-}
-
-.container.home .block .home-grid.weekend-grid .home-card {
-  flex: 0 0 320px;               /* fixed tile width for consistency */
-  scroll-snap-align: start;
-}
-
-/* On desktop, spread them evenly with no scrolling */
-@media (min-width: 900px) {
-  .container.home .block .home-grid.weekend-grid {
-    overflow: visible;
-    justify-content: space-between;
-  }
-  .container.home .block .home-grid.weekend-grid .home-card {
-    flex: 1 1 0;
-    max-width: none;
-  }
-}
 /* Weekend row */
 .container.home .block .home-grid.weekend-grid {
   display: grid !important;

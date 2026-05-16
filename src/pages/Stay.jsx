@@ -16,13 +16,13 @@ export default function Stay() {
   }}
 >
   ← Back
-</button>        <h2 className="title">Where to Stay</h2>
+</button>       
+ <h2 className="title">Where to Stay</h2>
 
         <p>
   There are plenty of places to stay in and around Kangaroo Valley — 
   from cosy cottages to holiday rentals.
-  If you’re planning to take the shuttle bus, 
-  consider choosing somewhere along the route for an easy ride to Wildwood.
+  If you’re planning to use the shuttle bus, consider booking accommodation along the route for an easier trip to and from Wildwood.
   You can check the <a href="#/weekend/shuttle" className="btn-link">Bus Map</a> for details.
 </p>
 

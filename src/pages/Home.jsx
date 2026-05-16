@@ -68,7 +68,7 @@ export default function Home() {
             margin: "0 auto 16px",
           }}
         >
-          Your quick guide to the celebrations · Pick a day to see the details.
+          Your guide to the celebrations · Select a day to view the details.
         </p>
         <div className="home-grid weekend-grid">
           
@@ -90,14 +90,6 @@ export default function Home() {
         <h2 className="title" style={{ textAlign: "center" }}>
           Plan Your Trip
         </h2>
-        <p
-          className="lead"
-          style={{
-            textAlign: "center",
-            maxWidth: 720,
-            margin: "0 auto 16px",
-          }}
-        ></p>
         <div className="home-grid two-by-two">
           <a className="home-card" href="#/weekend/getting-there">
             <h3>Getting There</h3>

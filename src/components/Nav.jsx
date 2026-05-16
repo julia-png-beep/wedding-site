@@ -7,29 +7,31 @@ export default function Nav() {
 
   const goHomeTo = (section) => (e) => {
     e.preventDefault();
-    // Use a query param so it survives navigation reliably under HashRouter
     navigate(`/?goto=${section}`);
+  };
+
+  const goHomeTop = (e) => {
+    e.preventDefault();
+    navigate("/");
+    window.setTimeout(() => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }, 50);
   };
 
   return (
     <nav className="nav">
-<NavLink
-  to="/"
-  end
-  onClick={(e) => {
-    e.preventDefault();
-    window.location.hash = "";      // ensure you’re on home route
-    window.scrollTo({ top: 0, behavior: "smooth" }); // scrolls to top
-  }}
->
-  Welcome
-</NavLink>
+      <NavLink to="/" end onClick={goHomeTop}>
+        Welcome
+      </NavLink>
 
-      {/* These two scroll on the Home page */}
-      <a href="/#/?goto=weekend" onClick={goHomeTo("weekend")}>The Weekend</a>
-      <a href="/#/?goto=plan" onClick={goHomeTo("plan")}>Plan Your Trip</a>
+      <a href="#/?goto=weekend" onClick={goHomeTo("weekend")}>
+        The Weekend
+      </a>
 
-      {/* These go to their own pages */}
+      <a href="#/?goto=plan" onClick={goHomeTo("plan")}>
+        Plan Your Trip
+      </a>
+
       <NavLink to="/faq">Q&amp;A</NavLink>
       <NavLink to="/rsvp">RSVP</NavLink>
       <NavLink to="/moments">Moments</NavLink>

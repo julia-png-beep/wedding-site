@@ -7,7 +7,7 @@ export default function WeekendGettingThere() {
       window.history.back();
     } else {
       // Fallback if user typed the URL directly or opened in a new tab
-      window.location.hash = "#/home";
+      window.location.hash = "#/";
     }
   }
 

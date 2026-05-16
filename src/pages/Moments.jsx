@@ -240,7 +240,7 @@ export default function Moments() {
       </section>
 
       <h2 className="map-section-title">
-        Our Global Footprint over the years
+        A few places we've explored together
       </h2>
 
       <div className="map-wrapper" onClick={() => setSelectedPin(null)}>

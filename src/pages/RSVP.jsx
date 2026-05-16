@@ -381,7 +381,7 @@ export default function RSVP() {
 </h4>
 
 <p className="small-note">
-  To help cover catering costs, we’ll ask guests attending the breakfast to contribute $20 per person closer to the date.
+  To help cover catering costs, guests attending the breakfast will be asked to contribute $20 per person closer to the date.
 </p>
 
                   <div className="choice-row two-col">

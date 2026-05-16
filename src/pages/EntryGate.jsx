@@ -3,8 +3,7 @@ import React from "react";
 import "./entrygate.css";
 
 const WEB_APP_URL =
-  "https://script.google.com/macros/s/AKfycbzvw2pVI4xpZceJtKVmvoZXTYOTHWKi1OWL3V-J93pjGyNrqpWvb4aq7JUjSr_qZ2qN0w/exec";
-
+  "https://script.google.com/macros/s/AKfycbyN1xtpATf4Ha5rLvEGEnD1-ds42KgezWBnlw2_dnz6nYVwxdgoy9zSo1xeF5ivyBYPpw/exec";
 function computeTimeLeft() {
   const target = new Date("2026-10-24T15:00:00+11:00"); 
   const now = new Date();

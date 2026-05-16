@@ -59,9 +59,9 @@ export default function FAQ() {
       q: "🚌 Where will the Shuttle bus be picking me up?",
       a: (
         <p>
-          We’ll share pickup times and exact locations closer to the day. When booking
-          accommodation, try to stay near one of the common stops along the shuttle route
-          if you are planning on taking the shuttle.
+          WWe’ll share pickup times and exact locations closer to the day.
+  If you’re planning to use the shuttle bus, we recommend booking
+  accommodation near one of the common pickup locations.
         </p>
       ),
     },
@@ -78,7 +78,7 @@ export default function FAQ() {
       a: (
         <p>
           We're going for cocktail attire, polished but relaxed. Think jacket and trousers,
-          and dresses of any length. The venue has natural, uneven ground, so stilettos might
+          and dresses of any length. The venue is set in natural bushland with some uneven ground so stilettos might
           not be your best friend. And while we love a statement outfit, white is best left
           for the bride for this one day.
         </p>
@@ -97,8 +97,7 @@ export default function FAQ() {
       q: "📷 Can I take photos or videos during the ceremony?",
       a: (
         <p>
-          We're having an unplugged ceremony, so please keep phones and cameras tucked away and be 
-        fully present with us. Once the party starts, feel free to snap away at the reception!
+          We're having an unplugged ceremony, so please keep phones and cameras tucked away and be fully present with us. Once the party starts, feel free to snap away at the reception!
         </p>
       ),
     },

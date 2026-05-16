@@ -15,15 +15,18 @@ import FAQ from "./pages/FAQ.jsx";
 import Gallery from "./pages/Gallery.jsx";
 import RSVP from "./pages/RSVP.jsx";
 import ThingsToDo from "./pages/ThingsToDo.jsx";
-import WeekendFriday from "./pages/WeekendFriday.jsx";
 import WeekendSaturday from "./pages/WeekendSaturday.jsx";
 import WeekendSunday from "./pages/WeekendSunday.jsx";
 import EntryGate from "./pages/EntryGate.jsx";
 
 import "./App.css";
 
-const heroImages = ["/Wildwoodlook.jpg", "/Wildwoodwalk.jpg"];
+const base = import.meta.env.BASE_URL;
 
+const heroImages = [
+  `${base}Wildwoodlook.jpg`,
+  `${base}Wildwoodwalk.jpg`,
+];
 export default function App() {
   const [index, setIndex] = React.useState(0);
   const [unlocked, setUnlocked] = React.useState(false);
@@ -99,10 +102,7 @@ export default function App() {
               <Route path="/moments" element={<Moments />} />
               <Route path="/weekend" element={<Weekend />} />
               <Route path="/weekend/schedule" element={<WeekendSchedule />} />
-              <Route
-                path="/weekend/schedule/friday"
-                element={<WeekendFriday />}
-              />
+              
               <Route
                 path="/weekend/schedule/saturday"
                 element={<WeekendSaturday />}

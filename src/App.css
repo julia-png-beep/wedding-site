@@ -40,21 +40,6 @@ html { scroll-behavior: smooth; }
   .timeline-row .dot { grid-column:1; margin:0; }
 }
 
-/* Wildwood Map Image styling */
-.map-card {
-  max-width: 640px;
-  margin: 1rem auto;
-}
-.map-image {
-  width: 100%;
-  border-radius: 14px;
-  box-shadow: 0 3px 14px rgb(0 0 0 / 0.15);
-  cursor: zoom-in;
-  transition: transform 0.2s ease;
-}
-.map-image:hover {
-  transform: scale(1.01);
-}
 /* --- Map card --- */
 .map-card{
   background:#fff;
@@ -72,7 +57,9 @@ html { scroll-behavior: smooth; }
   border-radius:10px;
   cursor: zoom-in;
 }
-
+.map-image:hover {
+  transform: scale(1.01);
+}
 /* --- Lightbox overlay --- */
 .lightbox{
   position: fixed;
