@@ -49,10 +49,10 @@ export default function Home() {
           Don’t worry, no hiking boots needed.
         </p>
         <img
-          className="home-photo"
-          src="/Iceland1.jpg"
-          alt="Evening by the lake"
-        />
+  className="home-photo"
+  src={`${import.meta.env.BASE_URL}Iceland1.jpg`}
+  alt="Evening by the lake"
+/>
       </section>
 
       {/* The Weekend */}
