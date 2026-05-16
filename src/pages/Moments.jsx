@@ -1,154 +1,42 @@
 import React, { useState } from "react";
 import worldMap from "../map.jpg";
 
+const base = import.meta.env.BASE_URL;
+
 export default function Moments() {
   const [selectedPin, setSelectedPin] = useState(null);
   const [cardPos, setCardPos] = useState({ x: 0, y: 0 });
 
   const pins = [
+    { top: "39.5%", left: "14%", img: `${base}Switzerland.jpg`, label: "Switzerland" },
+    { top: "39.4%", left: "17%", img: `${base}Vienna christmas 2018.jpg`, label: "Vienna" },
+    { top: "35.3%", left: "15.5%", img: `${base}Brussels.jpg`, label: "Belgium" },
+    { top: "44.3%", left: "17%", img: `${base}Florence.jpg`, label: "Tuscany" },
+    { top: "42.5%", left: "16.3%", img: `${base}Venice.jpg`, label: "Venice" },
+    { top: "41.3%", left: "15.6%", img: `${base}Bolzano 2023.jpg`, label: "Dolomites" },
+    { top: "44.3%", left: "10.6%", img: `${base}Barcelona 2017.jpg`, label: "Barcelona" },
+    { top: "92%", left: "72.5%", img: `${base}tassieproposal1.jpg`, label: "McGowans Falls" },
+    { top: "92.6%", left: "73.5%", img: `${base}Hiking11.jpg`, label: "Walls of Jerusalem" },
+    { top: "93.8%", left: "72.5%", img: `${base}Cradle Mountain 2025.jpg`, label: "Cradle Mountain" },
+    { top: "81%", left: "67.5%", img: `${base}Outback.jpg`, label: "Kings Canyon" },
+    { top: "74.8%", left: "68.3%", img: `${base}Kakadu1.jpg`, label: "Kakadu National Park" },
+    { top: "96%", left: "82.5%", img: `${base}NZ1.jpg`, label: "Milford Sound" },
+    { top: "80%", left: "74.5%", img: `${base}palm.jpg`, label: "Palm Cove" },
+    { top: "77%", left: "72.5%", img: `${base}Cape Trib 2021.jpg`, label: "Cape Tribulation" },
+    { top: "23%", left: "2.5%", img: `${base}Iceland2026.jpg`, label: "Reykjavik" },
+    { top: "93.8%", left: "83.5%", img: `${base}HikeNZ.jpg`, label: "Mount Cook" },
+    { top: "77%", left: "86.5%", img: `${base}Fiji2024.jpg`, label: "Fiji" },
+    { top: "61%", left: "56.5%", img: `${base}Vietnam2024.jpg`, label: "Vietnam" },
+    { top: "87.5%", left: "73%", video: `${base}snowys2024.mp4`, label: "Snowy Mountains" },
+    { top: "86%", left: "74.5%", img: `${base}Blue Mountains hike 2017.jpg`, label: "Blue Mountains" },
+    { top: "55%", left: "34.5%", img: `${base}qatar 2021 covid.jpg`, label: "One of many flights through Doha" },
     {
-      top: "39.5%",
-      left: "14%",
-      img: "/Switzerland.jpg",
-      label: "Switzerland",
-    },
-    {
-      top: "39.4%",
-      left: "17%",
-      img: "/Vienna christmas 2018.jpg",
-      label: "Vienna",
-    },
-    {
-      top: "35.3%",
-      left: "15.5%",
-      img: "/Brussels.jpg",
-      label: "Belgium",
-    },
-    {
-      top: "44.3%",
-      left: "17%",
-      img: "/Florence.jpg",
-      label: "Tuscany",
-    },
-    {
-      top: "42.5%",
-      left: "16.3%",
-      img: "/Venice.jpg",
-      label: "Venice",
-    },
-    {
-      top: "41.3%",
-      left: "15.6%",
-      img: "/Bolzano 2023.jpg",
-      label: "Dolomites",
-    },
-    {
-      top: "44.3%",
-      left: "10.6%",
-      img: "/Barcelona 2017.jpg",
-      label: "Barcelona",
-    },
-    {
-      top: "92%",
-      left: "72.5%",
-      img: "/tassieproposal1.jpg",
-      label: "McGowans Falls",
-    },
-    {
-      top: "92.6%",
-      left: "73.5%",
-      img: "/Hiking11.jpg",
-      label: "Walls of Jerusalem",
-    },
-      {
-      top: "93.8%",
-      left: "72.5%",
-      img: "/Cradle Mountain 2025.jpg",
-      label: "Cradle Mountain",
-    },{
-      top: "81%",
-      left: "67.5%",
-      img: "/Outback.jpg",
-      label: "Kings Canyon",
-    },
-    {
-      top: "74.8%",
-      left: "68.3%",
-      img: "/Kakadu1.jpg",
-      label: "Kakadu National Park",
-    },
-    {
-      top: "96%",
-      left: "82.5%",
-      img: "/NZ1.jpg",
-      label: "Milford Sound",
-    },
-    {
-      top: "80%",
-      left: "74.5%",
-      img: "/palm.jpg",
-      label: "Palm Cove",
-    },
-    {
-      top: "77%",
-      left: "72.5%",
-      img: "/Cape Trib 2021.jpg",
-      label: "Cape Tribulation",
-    },
-    {
-      top: "23%",
-      left: "2.5%",
-      img: "/Iceland2026.jpg",
-      label: "Reykjavik",
-    },
-    {
-      top: "93.8%",
-      left: "83.5%",
-      img: "/HikeNZ.jpg",
-      label: "Mount Cook",
-    },
-    {
-      top: "77%",
-      left: "86.5%",
-      img: "/Fiji2024.jpg",
-      label: "Fiji",
-    },
-    {
-      top: "61%",
-      left: "56.5%",
-      img: "/Vietnam2024.jpg",
-      label: "Vietnam",
-    },
-    {
-      top: "87.5%",
-      left: "73%",
-      video: "/snowys2024.mp4",
-      label: "Snowy Mountains",
-    },
-     {
-      top: "86%",
-      left: "74.5%",
-      img: "/Blue Mountains hike 2017.jpg",
-      label: "Blue Mountains",
-    },
-      {
-      top: "55%",
-      left: "34.5%",
-      img: "/qatar 2021 covid.jpg",
-      label: "One of many flights through Doha",
-    },{
       top: "21%",
       left: "4.5%",
-      youtube:
-        "https://www.youtube.com/embed/wbqJqfYt2c4?autoplay=1&mute=1&loop=1&playlist=wbqJqfYt2c4",
+      youtube: "https://www.youtube.com/embed/wbqJqfYt2c4?autoplay=1&mute=1&loop=1&playlist=wbqJqfYt2c4",
       label: "Iceland",
     },
-    {
-      top: "84%",
-      left: "76.5%",
-      img: "/Hamilton2022.jpeg",
-      label: "Hamilton Island",
-    }
+    { top: "84%", left: "76.5%", img: `${base}Hamilton2022.jpeg`, label: "Hamilton Island" },
   ];
 
   function handlePinHover(e, pin) {
@@ -274,15 +162,9 @@ export default function Moments() {
         }
 
         @keyframes pulse {
-          0% {
-            box-shadow: 0 0 0 0 rgba(123,79,63,0.5);
-          }
-          70% {
-            box-shadow: 0 0 0 12px rgba(123,79,63,0);
-          }
-          100% {
-            box-shadow: 0 0 0 0 rgba(123,79,63,0);
-          }
+          0% { box-shadow: 0 0 0 0 rgba(123,79,63,0.5); }
+          70% { box-shadow: 0 0 0 12px rgba(123,79,63,0); }
+          100% { box-shadow: 0 0 0 0 rgba(123,79,63,0); }
         }
 
         .hover-memory-card {
@@ -312,6 +194,7 @@ export default function Moments() {
           height: 100%;
           object-fit: contain;
           display: block;
+          border: 0;
         }
 
         .memory-content {
@@ -344,7 +227,7 @@ export default function Moments() {
 
       <section className="proposal-section">
         <div className="proposal-image-wrapper">
-          <img src="/tassieproposal1.jpg" alt="Proposal" />
+          <img src={`${base}tassieproposal1.jpg`} alt="Proposal" />
         </div>
 
         <div className="proposal-text">
@@ -369,7 +252,7 @@ export default function Moments() {
             className="map-pin"
             style={{
               top: pin.top,
-              left: pin.left
+              left: pin.left,
             }}
             onMouseEnter={(e) => handlePinHover(e, pin)}
             onMouseMove={(e) => handlePinHover(e, pin)}
@@ -389,7 +272,7 @@ export default function Moments() {
           className="hover-memory-card"
           style={{
             left: `${cardPos.x}px`,
-            top: `${cardPos.y}px`
+            top: `${cardPos.y}px`,
           }}
         >
           <div className="memory-image">
