@@ -1,10 +1,28 @@
 import React from "react";
 
 export default function WeekendGettingThere() {
+  function handleBack() {
+    // If there is navigation history, go back
+    if (window.history.length > 1) {
+      window.history.back();
+    } else {
+      // Fallback if user typed the URL directly or opened in a new tab
+      window.location.hash = "#/home";
+    }
+  }
+
   return (
     <main className="container">
       <section className="block">
-        <a className="btn-link" href="#/home">← Back</a>
+        <button
+          type="button"
+          className="btn-link"
+          onClick={handleBack}
+          style={{ padding: 0, background: "none", border: "none" }}
+        >
+          ← Back
+        </button>
+
         <h2 className="title">Getting There</h2>
 
         <p>
@@ -36,7 +54,6 @@ export default function WeekendGettingThere() {
 
         <p><strong>💡 Tip:</strong> It’s best to drive if you can — the journey’s part of the adventure!</p>
 
-        {/* Map embed (keeps your original Google Maps reference) */}
         <div className="map" style={{ marginTop: "1.5rem" }}>
           <iframe
             src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d47218.60034711542!2d150.4377229358053!3d-34.73477574920238!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1swildwood!5e1!3m2!1sen!2sau!4v1748735900805!5m2!1sen!2sau"
@@ -46,8 +63,6 @@ export default function WeekendGettingThere() {
             title="Wildwood Kangaroo Valley Map"
           ></iframe>
         </div>
-
-         
       </section>
     </main>
   );

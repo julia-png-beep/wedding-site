@@ -4,15 +4,28 @@ export default function Stay() {
   return (
     <main className="container">
       <section className="block">
-        <a className="btn-link" href="#/home">← Back</a>
-        <h2 className="title">Where to Stay</h2>
+<button
+  type="button"
+  className="btn-link"
+  onClick={() => {
+    if (window.history.length > 1) {
+      window.history.back();
+    } else {
+      window.location.hash = "#/"; // fallback to home if no history
+    }
+  }}
+>
+  ← Back
+</button>        <h2 className="title">Where to Stay</h2>
 
         <p>
-          There are plenty of accommodation options in and around Kangaroo Valley —
-          from boutique hotels to cottages and holiday rentals. For ease of transport
-          on Saturday, we recommend choosing somewhere along the shuttle bus route.
-          Please see the Bus Map for details.
-        </p>
+  There are plenty of places to stay in and around Kangaroo Valley — 
+  from cosy cottages to holiday rentals.
+  If you’re planning to take the shuttle bus, 
+  consider choosing somewhere along the route for an easy ride to Wildwood.
+  You can check the <a href="#/weekend/shuttle" className="btn-link">Bus Map</a> for details.
+</p>
+
 
         <h3 className="subtitle">Our Top Recommendations</h3>
         <ul className="recommendations">
@@ -22,7 +35,7 @@ export default function Stay() {
                 Wildes Boutique Hotel
               </a>
             </strong>{" "}
-            — a cosy boutique hotel in the heart of town
+            — a small boutique hotel in the heart of town
           </li>
           <li>
             <strong>
@@ -30,7 +43,7 @@ export default function Stay() {
                 Kangaroo Valley Getaways
               </a>
             </strong>{" "}
-            — Airbnb-style accommodation
+            — Airbnb-style accommodation via a local agent
           </li>
           <li>
             <strong>
@@ -40,29 +53,28 @@ export default function Stay() {
             </strong>{" "}
             — curated boutique holiday homes
           </li>
-          <li>
+    <li>
             <strong>
-              <a href="https://www.visitkangaroovalley.com.au/stay" target="_blank" rel="noreferrer">
-                Visit Kangaroo Valley Listings
+              <a href="https://kangaroovalleygolf.com.au/" target="_blank" rel="noreferrer">
+                Kangaroo Valley Golf & Country Retreat
               </a>
             </strong>{" "}
-            — the full local accommodation directory
+            — One to three bedroom cottages in the middle of Kangaroo Valley's golf club
+          </li>
+          <li>
+            <strong>
+              <a href="https://www.kangaroovalleycountrywedding.com.au/place-for-guests" target="_blank" rel="noreferrer">
+                Places to stay recommended by Wildwood
+              </a>
+            </strong>{" "}
+            — a list of local popular places to stay
           </li>
         </ul>
 
-        <p>
-          You can also explore Wildwood’s own recommendations here:{" "}
-          <a
-            href="https://wildwoodkangaroovalley.com.au/accommodation"
-            target="_blank"
-            rel="noreferrer"
-          >
-            Wildwood Accommodation Suggestions
-          </a>.
-        </p>
+        
 
         <p style={{ marginTop: "0.75rem" }}>
-          Accommodation in Kangaroo Valley is popular and can book out quickly — especially on weekends.
+          Accommodation in Kangaroo Valley is popular and can book out quickly, especially on weekends.
           We recommend securing your stay early.
         </p>
       </section>

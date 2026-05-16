@@ -271,6 +271,15 @@ a:hover { color: var(--clay-ink); }
   box-shadow: var(--ring);
 }
 
+.form label input[type="checkbox"] {
+  transform: scale(1.2);
+  margin-right: 6px;
+}
+.form input[type="radio"] {
+  transform: scale(1.1);
+  margin-right: 4px;
+}
+
 /* ===== Footer ===== */
 .footer {
   background: var(--leaf);
@@ -438,3 +447,282 @@ a:hover { color: var(--clay-ink); }
   margin-inline: auto;
   margin-bottom: 0.75em;
 }
+/* use only on RSVP page */
+.container--narrow {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+  color: #2e2e2e;
+
+}
+
+/* Headings */
+.title {
+  font-family: "Playfair Display", serif;
+  font-size: 2rem;
+  color: var(--clay, #784a3b);
+  margin-bottom: 0.5rem;
+}
+
+.lead {
+  font-size: 1.1rem;
+  color: #333;
+}
+
+/* Buttons */
+.btn {
+  display: inline-block;
+  font-weight: 600;
+  background: var(--clay, #784a3b);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 0.75rem 1.25rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+
+.btn-link {
+  color: var(--clay, #784a3b);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.btn-link:hover {
+  text-decoration: underline;
+}
+
+/* RSVP choice buttons */
+.btn-choice {
+  width: 100%;
+  font-size: 1.1rem;
+  padding: 1rem;
+  border-radius: 12px;
+  font-family: "Work Sans", sans-serif;
+}
+
+.btn-choice.yes {
+  background: #388e3c;
+  color: white;
+}
+
+.btn-choice.no {
+  background: #9aa4b2;
+  color: white;
+}
+
+/* Stack the choice buttons vertically */
+.choice-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  align-items: center;
+  margin: 1rem 0;
+}
+
+/* Household header block */
+.household-banner {
+  margin: 1rem 0 1.5rem;
+  padding: 1rem 1.25rem;
+  background: #fffdf9;
+  border: 2px solid var(--clay, #784a3b);
+  border-radius: 14px;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.household-banner h3 {
+  margin: 0;
+  font-family: "Playfair Display", serif;
+  font-weight: 700;
+  font-size: 1.4rem;
+  color: var(--clay, #784a3b);
+}
+
+/* Inputs */
+input,
+textarea {
+  width: 100%;
+  border: 1px solid #d5d7da;
+  border-radius: 8px;
+  padding: 0.5rem 0.75rem;
+  font-size: 1rem;
+  font-family: "Work Sans", sans-serif;
+}
+
+textarea {
+  resize: vertical;
+}
+
+label {
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+/* Checkbox / radio alignment */
+input[type="checkbox"],
+input[type="radio"] {
+  accent-color: var(--clay, #784a3b);
+}
+
+/* Mobile tweaks */
+@media (max-width: 480px) {
+  .title {
+    font-size: 1.6rem;
+  }
+  .btn-choice {
+    font-size: 1rem;
+  }
+}
+/* =========== Wildwood RSVP Embellishments =========== */
+
+/* Soft paper-like background pattern */
+body {
+  background-color: var(--wildwood-cream);
+  background-image: radial-gradient(
+      circle at 10% 20%,
+      rgba(182, 195, 160, 0.08) 0%,
+      transparent 25%
+    ),
+    radial-gradient(
+      circle at 90% 80%,
+      rgba(215, 180, 160, 0.06) 0%,
+      transparent 25%
+    );
+  background-attachment: fixed;
+  background-size: 600px 600px;
+}
+
+/* Gentle leaf motif when RSVP is submitted */
+.rsvp-success {
+  position: relative;
+  padding: 1.5rem;
+  border: 2px solid var(--wildwood-eucalyptus);
+  border-radius: 14px;
+  background: rgba(182, 195, 160, 0.15);
+  color: var(--wildwood-clay);
+  text-align: center;
+  font-weight: 600;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+/* Decorative floating leaves */
+.rsvp-success::before,
+.rsvp-success::after {
+  content: "";
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(138, 165, 138, 0.25) 30%,
+    transparent 70%
+  );
+  border-radius: 50% 40% 60% 50%;
+  opacity: 0.4;
+}
+
+.rsvp-success::before {
+  top: -20px;
+  left: -20px;
+  transform: rotate(-25deg);
+}
+
+.rsvp-success::after {
+  bottom: -20px;
+  right: -20px;
+  transform: rotate(45deg);
+}
+
+/* Subtle animation for calm movement */
+@keyframes sway {
+  0% {
+    transform: rotate(-2deg) translateY(0);
+  }
+  50% {
+    transform: rotate(2deg) translateY(3px);
+  }
+  100% {
+    transform: rotate(-2deg) translateY(0);
+  }
+}
+
+.rsvp-success::before,
+.rsvp-success::after {
+  animation: sway 6s ease-in-out infinite alternate;
+}
+/* =========== Wildwood Confetti & Heart Animation =========== */
+
+.hearts {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Floating leaves & hearts */
+.confetti {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  transform: translateX(-50%);
+}
+
+.confetti::before,
+.confetti::after {
+  content: "💚 💕 🌿 💛 🤍";
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  animation: floatUp 5s ease-in-out infinite;
+  opacity: 0.8;
+  font-size: 1.2rem;
+}
+
+.confetti::after {
+  animation-delay: 2.5s;
+  font-size: 1rem;
+  opacity: 0.6;
+}
+
+/* Floating animation */
+@keyframes floatUp {
+  0% {
+    transform: translateY(40px) scale(1);
+    opacity: 0.9;
+  }
+  50% {
+    opacity: 0.7;
+  }
+  100% {
+    transform: translateY(-120px) scale(1.1);
+    opacity: 0;
+  }
+}
+
+/* Button pulse when submitted */
+.btn:disabled {
+  animation: pulse 1.5s ease-in-out 1;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.06);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+/* src/index.css or App.css */
+html { scroll-behavior: smooth; }
+

@@ -9,12 +9,7 @@ export default function WeekendSchedule() {
         <p className="lead">Your quick view of the weekend — tap a day for details.</p>
 
         <div className="home-grid">
-          {/* Friday */}
-          <a className="home-card" href="#/weekend/friday">
-            <h3>Friday · Welcome Drinks</h3>
-            <p>Relaxed dinner & drinks at The Friendly Inn</p>
-            <span>→</span>
-          </a>
+          
 
           {/* Saturday */}
           <a className="home-card" href="#/weekend/saturday">

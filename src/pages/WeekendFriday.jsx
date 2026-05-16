@@ -4,8 +4,19 @@ export default function WeekendFriday() {
   return (
     <main className="container">
       <section className="block">
-        <a className="btn-link" href="#/home">← Back</a>
-        <h2 className="title">Friday · Welcome Drinks</h2>
+<button
+  type="button"
+  className="btn-link"
+  onClick={() => {
+    if (window.history.length > 1) {
+      window.history.back();
+    } else {
+      window.location.hash = "#/"; // fallback to home if no history
+    }
+  }}
+>
+  ← Back
+</button>        <h2 className="title">Friday · Welcome Drinks</h2>
 
         <p>
           <strong>
@@ -22,10 +33,15 @@ export default function WeekendFriday() {
         </p>
 
         <p>
-          Join us for a relaxed evening at the Friendly Inn in the heart of Kangaroo Valley to
-          say hello and settle in before the big day. Grab a classic pub meal (you can’t go wrong
-          with a parmi) and enjoy a casual night catching up with everyone. We’ll wrap up early
-          so everyone’s fresh for Saturday.
+          Rolling into Kangaroo Valley early?
+Join us at the Friendly Inn on Friday night for a low-key welcome.
+
+Grab a drink, order a parmi,
+and enjoy that first breath of country air
+as we settle in together before the weekend ahead.
+
+We’ll keep it chill and wrap up early —
+Saturday’s a big one!.
         </p>
 
         {/* Google Map Embed with pinned location */}

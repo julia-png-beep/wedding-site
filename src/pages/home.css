@@ -1,0 +1,180 @@
+/* smooth anchor scroll */
+html { scroll-behavior: smooth; }
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.pad-y { padding: 56px 0; }
+
+.lead {
+  font-size: 1.125rem;
+  line-height: 1.8;
+  max-width: 70ch;
+  color: #333;
+}
+
+/* HERO */
+.hero {
+  position: relative;
+  height: 52vh;
+  min-height: 360px;
+  overflow: hidden;
+  background: #111;
+}
+
+.hero-slide {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transition: opacity 900ms ease;
+}
+.hero-slide.is-active { opacity: 1; }
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  color: #fff;
+  background: linear-gradient(to top, rgba(0,0,0,0.45), rgba(0,0,0,0.15));
+}
+
+.hero-title {
+  font-family: "Playfair Display", serif;
+  font-size: clamp(2rem, 4vw + 1rem, 3.5rem);
+  margin: 0;
+  color: #c02b2b; /* your red */
+  text-shadow: 0 2px 12px rgba(0,0,0,0.4);
+}
+
+.hero-kicker {
+  margin-top: 6px;
+  letter-spacing: .015em;
+  opacity: .9;
+}
+
+/* sections */
+h2 {
+  font-family: "Playfair Display", serif;
+  color: #1f3b2d; /* deep green to match nav */
+  font-size: 1.9rem;
+  margin: 0 0 14px;
+}
+
+.list { padding-left: 1rem; line-height: 1.9; }
+
+/* src/pages/home.css */
+
+.home-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+  justify-items: stretch;
+}
+
+/* force exactly 3 tiles per row on desktop */
+@media (min-width: 900px) {
+  .home-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* optional variant for two-by-two sections */
+.home-grid.two-by-two {
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+}
+
+.home-card {
+  background: white;
+  border-radius: 10px;
+  padding: 24px;
+  text-align: center;
+  text-decoration: none;
+  color: inherit;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.home-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+}
+
+.home-card span {
+  display: inline-block;
+  font-size: 20px;
+  margin-top: 6px;
+}
+
+/* Force the Weekend tiles into a single row */
+.container.home .block .home-grid.weekend-grid {
+  display: flex !important;
+  gap: 24px;
+  overflow-x: auto;              /* allows scroll on narrow screens */
+  -webkit-overflow-scrolling: touch;
+  scroll-snap-type: x mandatory; /* nice snap scroll */
+  padding-bottom: 8px;
+}
+
+.container.home .block .home-grid.weekend-grid .home-card {
+  flex: 0 0 320px;               /* fixed tile width for consistency */
+  scroll-snap-align: start;
+}
+
+/* On desktop, spread them evenly with no scrolling */
+@media (min-width: 900px) {
+  .container.home .block .home-grid.weekend-grid {
+    overflow: visible;
+    justify-content: space-between;
+  }
+  .container.home .block .home-grid.weekend-grid .home-card {
+    flex: 1 1 0;
+    max-width: none;
+  }
+}
+/* Weekend row */
+.container.home .block .home-grid.weekend-grid {
+  display: grid !important;
+  grid-template-columns: repeat(2, minmax(280px, 340px)) !important;
+  justify-content: center !important;
+  gap: 24px !important;
+}
+
+/* Mobile */
+@media (max-width: 767px) {
+  .container.home .block .home-grid.weekend-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* Optional: if your .container is narrow, give this row a wider max width */
+.container.home .block:has(.weekend-grid) {
+  max-width: 1100px;   /* tweak if needed */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* --------------------------------------------
+   Larger, more elegant headings for home tiles
+---------------------------------------------*/
+.home-card h3 {
+  font-family: "Playfair Display", serif;
+  font-size: 2rem;
+  font-weight: 600;
+  color: #1f3b2d;   /* matches your deep green headings */
+  margin-bottom: 10px;
+  line-height: 1.25;
+}
+
+/* Slightly reduce size on small screens to prevent wrapping */
+@media (max-width: 480px) {
+  .home-card h3 {
+    font-size: 1.32rem;
+  }
+}

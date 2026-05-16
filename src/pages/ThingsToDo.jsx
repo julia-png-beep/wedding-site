@@ -4,8 +4,19 @@ export default function ThingsToDo() {
   return (
     <main className="container">
       <section className="block">
-        <a className="btn-link" href="#/">← Back</a>
-        <h2 className="title">Things to Do Around Kangaroo Valley</h2>
+<button
+  type="button"
+  className="btn-link"
+  onClick={() => {
+    if (window.history.length > 1) {
+      window.history.back();
+    } else {
+      window.location.hash = "#/"; // fallback to home if no history
+    }
+  }}
+>
+  ← Back
+</button>        <h2 className="title">Things to Do Around Kangaroo Valley</h2>
 
         <p>
           Kangaroo Valley is a slice of paradise surrounded by rolling hills,

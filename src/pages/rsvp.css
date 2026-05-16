@@ -1,0 +1,152 @@
+/* RSVP tiles styled like FAQ cards */
+.rsvp-tile.guest-card {
+  background: #fff;
+  border: 1px solid #e6e7ea;
+  border-radius: 14px;
+  padding: 16px 18px;
+  margin: 14px 0;
+  box-shadow: 0 3px 14px rgb(0 0 0 / 0.05);
+}
+
+.guest-name {
+  font-family: "Playfair Display", serif;
+  font-weight: 700;
+  font-size: 1.15rem;
+  color: var(--clay, #784a3b);
+  margin-bottom: 10px;
+}
+
+/* Grid layout for all guest cards */
+.guest-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 14px;
+  margin-bottom: 18px;
+}
+
+@media (min-width: 900px) {
+  .guest-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Base layout for choice rows */
+.choice-row {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Radio layout: two columns on desktop, one on mobile */
+.choice-row.two-col {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px 10px;
+  align-items: start;
+}
+@media (max-width: 720px) {
+  .choice-row.two-col {
+    grid-template-columns: 1fr;
+  }
+}
+
+.choice {
+  display: grid;
+  grid-template-columns: 1fr 5fr;
+  align-items: flex-start;
+  gap: 8px;
+}
+.choice input[type="radio"],
+.choice input[type="checkbox"] {
+  margin-top: 3px;
+  align-items: start;
+}
+.choice span {
+  display: block;
+}
+
+/* Dietary and sub-sections */
+.diet-section {
+  margin-top: 10px;
+}
+.diet-section .diet-label {
+  font-weight: 600;
+  color: #374151;
+  margin: 6px 0;
+}
+
+/* Input styling */
+.rsvp-tile input[type="text"],
+.rsvp-tile input[type="email"],
+.rsvp-tile textarea {
+  width: 100%;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  padding: 0.75rem 0.9rem;
+  background: #fff;
+  font: inherit;
+  transition: box-shadow 0.15s ease, border-color 0.15s ease;
+}
+.rsvp-tile input:focus,
+.rsvp-tile textarea:focus {
+  border-color: var(--clay, #784a3b);
+  box-shadow: var(--ring, 0 0 0 3px rgba(158, 65, 57, 0.25));
+}
+
+/* Helper text */
+.help {
+  margin: 0.5rem 0 0;
+  color: #6b7280;
+  font-size: 0.95rem;
+}
+
+/* Divider between sections (optional) */
+.rsvp-divider {
+  height: 1px;
+  background: #eee;
+  margin: 12px 0;
+}
+
+/* Plus one block layout */
+.plusone-fields {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.field-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.field-group label,
+.field-label {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #374151;
+}
+/* Styling for the household name at the top of the form */
+.household-name {
+  font-family: "Playfair Display", serif;
+  font-size: 2.4rem; /* Makes it stand out */
+  font-weight: 700;
+  font-style: italic; /* Gives it that wedding invitation feel */
+  color: var(--clay, #784a3b);
+  line-height: 1.2;
+  margin-bottom: 4px;
+}
+
+.household-code {
+  font-size: 0.8rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #9ca3af; /* Soft grey */
+  margin-bottom: 24px;
+}
+
+.household-banner {
+  text-align: center;
+  padding: 20px 0 10px;
+}

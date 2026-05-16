@@ -1,0 +1,175 @@
+/* src/pages/entrygate.css */
+
+.entrygate {
+  min-height: 70vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1.5rem;
+}
+
+/* Card overlay in front of your hero image */
+.entrygate-card {
+  background: rgba(247, 250, 247, 0.95);
+  border-radius: 18px;
+  padding: 2.4rem 2.6rem;
+  max-width: 520px;
+  width: 100%;
+  box-shadow: 0 18px 45px rgba(15, 23, 42, 0.17);
+  border: 1px solid rgba(120, 74, 59, 0.2);
+  text-align: center;
+  backdrop-filter: blur(3px);
+}
+
+/* Heading + subtitle like screenshot */
+
+.entry-title {
+  font-family: "Playfair Display", serif;
+  font-size: 2.1rem;
+  margin: 0 0 0.25rem;
+  color: #1f2933;
+}
+
+.entry-sub {
+  font-size: 1.1rem;
+  color: var(--clay, #784a3b);
+  margin: 0 0 1.4rem;
+}
+
+/* Countdown line */
+
+.entry-count-plain {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #374151;
+  margin-bottom: 1.4rem;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Body copy above input */
+
+.entry-body {
+  font-size: 0.98rem;
+  color: #4b5563;
+  margin-bottom: 1.2rem;
+}
+
+/* Form */
+
+.entry-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  text-align: left;
+}
+
+.entry-form input {
+  width: 100%;
+  padding: 0.85rem 0.95rem;
+  border-radius: 10px;
+  border: 1px solid #d1d5db;
+  font-size: 0.98rem;
+  background: #ffffff;
+}
+
+.entry-form input:focus {
+  outline: none;
+  border-color: var(--clay, #784a3b);
+  box-shadow: 0 0 0 3px rgba(120, 74, 59, 0.25);
+}
+
+.entry-form .btn {
+  align-self: center;
+  min-width: 140px;
+}
+
+/* Error message */
+
+.entry-error {
+  margin-top: 0.25rem;
+  color: #b91c1c;
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+/* Small screens */
+
+@media (max-width: 480px) {
+  .entrygate-card {
+    padding: 1.9rem 1.6rem;
+    border-radius: 14px;
+  }
+
+  .entry-title {
+    font-size: 1.8rem;
+  }
+
+  .entry-sub {
+    font-size: 1rem;
+  }
+
+  .entry-count-plain {
+    font-size: 1rem;
+  }
+}
+.entry-btn {
+  background: #324c3a;
+  color: white;
+  padding: 12px 28px;
+  border-radius: 12px;
+  border: none;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: opacity 0.25s ease, transform 0.2s ease;
+font-family: inherit;
+
+}
+
+.entry-btn:hover {
+  opacity: 0.9;
+  transform: translateY(-2px);
+}
+
+/* Base layout already existing */
+.entry-gate {
+  min-height: calc(100vh - 80px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px 16px;
+}
+
+.entry-panel {
+  max-width: 460px;
+  width: 100%;
+}
+
+/* Mobile fine-tuning */
+@media (max-width: 720px) {
+  .entry-gate {
+    padding: 24px 14px;
+  }
+
+  .entry-title {
+    font-size: 1.1rem;
+  }
+
+  .entry-text {
+    font-size: 0.95rem;
+  }
+
+  .entry-row {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+  }
+
+  .entry-input {
+    width: 100%;
+  }
+
+  .entry-btn {
+    width: 100%;
+    text-align: center;
+  }
+}

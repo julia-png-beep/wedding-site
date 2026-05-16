@@ -4,17 +4,25 @@ export default function WeekendSunday() {
   return (
     <main className="container">
       <section className="block">
-        <a className="btn-link" href="#/home">← Back</a>
-
-        <h2 className="title">Sunday · 25 October 2026</h2>
-        <h3 className="subtitle">Farewell Breakfast</h3>
+<button
+  type="button"
+  className="btn-link"
+  onClick={() => {
+    if (window.history.length > 1) {
+      window.history.back();
+    } else {
+      window.location.hash = "#/"; // fallback to home if no history
+    }
+  }}
+>
+  ← Back
+</button>
+        <h2 className="title">Sunday · Farewell Breakfast</h2>
 
         <p>
           <strong>
             <a
-              href="https://wildwoodkangaroovalley.com.au/"
-              target="_blank"
-              rel="noreferrer"
+              
             >
               Wildwood, Kangaroo Valley
             </a>
@@ -24,9 +32,9 @@ export default function WeekendSunday() {
         </p>
 
         <p>
-          Join us for a relaxed Sunday morning at Wildwood to unwind and say goodbye. 
-          Drop in for coffee, a bite to eat, and a slow farewell in the bush. 
-          We’ll be having breakfast — if you’d like to join us, please let us know in your RSVP.
+          Before you hit the road, join us at Wildwood for a relaxed Sunday morning.
+Grab a coffee, a bite to eat, and enjoy a slow farewell in the bush
+before we all head home.
         </p>
 
         {/* Google Maps Embed for Wildwood */}
