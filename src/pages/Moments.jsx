@@ -235,23 +235,24 @@ export default function Moments() {
       `}</style>
 
       <section className="proposal-section">
-        <div className="proposal-image-wrapper">
-          <img src={`${base}tassieproposal1.jpg`} alt="Proposal" />
-        </div>
-
-        <div className="proposal-text">
-          <h1>The Proposal</h1>
-          <p>
-            On a crisp morning in Tasmania, surrounded by wild landscapes and
-            silence, we decided on forever.
-          </p>
-        </div>
       </section>
 
       <h2 className="map-section-title">
         A few places we've explored together
       </h2>
-
+<p
+  style={{
+    textAlign: "center",
+    maxWidth: "760px",
+    margin: "0 auto 38px auto",
+    lineHeight: "1.9",
+    color: "#5a636e",
+    fontSize: "1.05rem",
+  }}
+>
+  Some favourite places from the last ten years of travelling, hiking,
+  getting lost and occasionally surviving questionable camping weather.
+</p>
       <div className="map-wrapper" onClick={() => setSelectedPin(null)}>
         <img src={worldMap} alt="World Map" className="map-bg" />
 
