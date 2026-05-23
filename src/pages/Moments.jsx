@@ -8,15 +8,17 @@ export default function Moments() {
   const [cardPos, setCardPos] = useState({ x: 0, y: 0 });
 
   const pins = [
-    { top: "39.5%", left: "14%", img: `${base}Switzerland.jpg`, label: "Switzerland" },
+    { top: "39.5%", left: "14%", img: `${base}Switzerland.jpg`, label: "Lucerne" },
     { top: "39.4%", left: "17%", img: `${base}Vienna christmas 2018.jpg`, label: "Vienna" },
-    { top: "35.3%", left: "15.5%", img: `${base}Brussels.jpg`, label: "Belgium" },
-    { top: "44.3%", left: "17%", img: `${base}Florence.jpg`, label: "Tuscany" },
-    { top: "42.5%", left: "16.3%", img: `${base}Venice.jpg`, label: "Venice" },
-    { top: "41.3%", left: "15.6%", img: `${base}Bolzano 2023.jpg`, label: "Dolomites" },
-    { top: "44.3%", left: "10.6%", img: `${base}Barcelona 2017.jpg`, label: "Barcelona" },
+    { top: "35.3%", left: "15.5%", img: `${base}Brussels.jpg`, label: "Brussels" },
+    { top: "44.3%", left: "17%", img: `${base}Florence.jpg`, label: "Verona" },
+        { top: "44.3%", left: "15.4%", img: `${base}Florence2.jpg`, label: "Florence" },
+    { top: "41.5%", left: "15.8%", img: `${base}Venice.jpg`, label: "Venice" },
+    { top: "41.3%", left: "14.6%", img: `${base}Bolzano 2023.jpg`, label: "Dolomites" },
+    { top: "44.3%", left: "10.6%", img: `${base}Montserrat.jpg`, label: "Montserrat" },
+    { top: "44.6%", left: "11.5%", img: `${base}Barcelona 2017.jpg`, label: "Barcelona" },
     { top: "92%", left: "72.5%", img: `${base}tassieproposal1.jpg`, label: "McGowans Falls" },
-    { top: "92.6%", left: "73.5%", img: `${base}Hiking11.jpg`, label: "Walls of Jerusalem" },
+    { top: "92.6%", left: "73.5%", img: `${base}Hiking11.jpg`, label: "Central Plateau" },
     { top: "93.8%", left: "72.5%", img: `${base}Cradle Mountain 2025.jpg`, label: "Cradle Mountain" },
     { top: "81%", left: "67.5%", img: `${base}Outback.jpg`, label: "Kings Canyon" },
     { top: "74.8%", left: "68.3%", img: `${base}Kakadu1.jpg`, label: "Kakadu National Park" },
@@ -26,16 +28,23 @@ export default function Moments() {
     { top: "23%", left: "2.5%", img: `${base}Iceland2026.jpg`, label: "Reykjavik" },
     { top: "93.8%", left: "83.5%", img: `${base}HikeNZ.jpg`, label: "Mount Cook" },
     { top: "77%", left: "86.5%", img: `${base}Fiji2024.jpg`, label: "Fiji" },
-    { top: "61%", left: "56.5%", img: `${base}Vietnam2024.jpg`, label: "Vietnam" },
+    { top: "61%", left: "56.5%", img: `${base}Vietnam2024.jpg`, label: "Hoi An" },
     { top: "87.5%", left: "73%", video: `${base}snowys2024.mp4`, label: "Snowy Mountains" },
     { top: "86%", left: "74.5%", img: `${base}Blue Mountains hike 2017.jpg`, label: "Blue Mountains" },
-    { top: "55%", left: "34.5%", img: `${base}qatar 2021 covid.jpg`, label: "One of many flights through Doha" },
+    { top: "55%", left: "34.5%", img: `${base}qatar 2021 covid.jpg`, label: "One of many flights through the Middle East" },
     {
       top: "21%",
       left: "4.5%",
       youtube: "https://www.youtube.com/embed/wbqJqfYt2c4?autoplay=1&mute=1&loop=1&playlist=wbqJqfYt2c4",
       label: "Iceland",
     },
+    {
+  top: "94%",
+  left: "73.5%",
+  youtube:
+    "https://www.youtube.com/embed/9jV7_wfMm8s?autoplay=1&mute=1&loop=1&playlist=9jV7_wfMm8s",
+  label: "Walls of Jerusalem",
+},
     { top: "84%", left: "76.5%", img: `${base}Hamilton2022.jpeg`, label: "Hamilton Island" },
   ];
 
