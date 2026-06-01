@@ -18,6 +18,15 @@ export default function FAQ() {
       ),
     },
     {
+  q: "⏰ When should we arrive for the ceremony?",
+  a: (
+    <p>
+      The ceremony will begin at <strong>3:00pm</strong>. Please arrive by{" "}
+      <strong>2:30pm</strong> so you have time to park, find a seat and settle in before we begin.
+    </p>
+  ),
+},
+    {
       q: "👫 Can I bring a date?",
       a: (
         <p>
@@ -59,7 +68,7 @@ export default function FAQ() {
       q: "🚌 Where will the Shuttle bus be picking me up?",
       a: (
         <p>
-          WWe’ll share pickup times and exact locations closer to the day.
+          We’ll share pickup times and exact locations closer to the day.
   If you’re planning to use the shuttle bus, we recommend booking
   accommodation near one of the common pickup locations.
         </p>
