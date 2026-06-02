@@ -273,7 +273,7 @@ export default function RSVP() {
                 return (
                   <div key={m.guestId} className="rsvp-tile guest-card">
                     <div className="guest-name">
-                      {m.first} {m.last}
+                      {m.first}
                     </div>
 
                     <div className="choice-row two-col">
@@ -360,7 +360,7 @@ export default function RSVP() {
                           checked={friday === "Yes"}
                           onChange={() => setFriday("Yes")}
                         />
-                        <span>Yes, we’d love to join.</span>
+                        <span>Yes, looking forward to it.</span>
                       </label>
 
                       <label className="choice">
@@ -369,7 +369,7 @@ export default function RSVP() {
                           checked={friday === "No"}
                           onChange={() => setFriday("No")}
                         />
-                        <span>No, we’ll see you on Saturday.</span>
+                        <span>No thanks, we’ll see you on Saturday.</span>
                       </label>
                     </div>
                   </div>
@@ -391,8 +391,7 @@ If you’d like to join us for the farewell breakfast, we’ll ask for a small c
                         onChange={() => setSunday("Yes")}
                       />
                       <span>
-                        Absolutely — we’ll be there for one last hug and a flat
-                        white.
+                        Yes, see you there. 
                       </span>
                     </label>
 
@@ -403,7 +402,7 @@ If you’d like to join us for the farewell breakfast, we’ll ask for a small c
                         onChange={() => setSunday("No")}
                       />
                       <span>
-                        We’ll be hitting the road, but we’ll miss you already.
+                        No thanks.
                       </span>
                     </label>
                   </div>
@@ -420,7 +419,7 @@ If you’d like to join us for the farewell breakfast, we’ll ask for a small c
                         onChange={() => setTransport("Shuttle")}
                       />
                       <span>
-                        Shuttle all the way — we’re here to relax and ride.
+                        Shuttle bus.
                       </span>
                     </label>
 
@@ -431,7 +430,7 @@ If you’d like to join us for the farewell breakfast, we’ll ask for a small c
                         onChange={() => setTransport("Drive")}
                       />
                       <span>
-                        We’ll be driving ourselves — save us a parking spot.
+                        Driving, please save a parking spot.
                       </span>
                     </label>
                   </div>
