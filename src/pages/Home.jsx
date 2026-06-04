@@ -22,15 +22,6 @@ export default function Home() {
     return () => clearTimeout(t);
   }, [location.search, location.hash, navigate]);
 
-  function handleRelockForTesting() {
-    try {
-      localStorage.removeItem("weddingAccessGranted");
-      localStorage.removeItem("weddingAccessCode");
-    } catch {
-      // ignore
-    }
-    window.location.reload();
-  }
 
   return (
     <main className="container home">
@@ -147,16 +138,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Testing-only relock link */}
-      <div style={{ textAlign: "center", marginBottom: "2rem" }}>
-        <button
-          type="button"
-          className="relock-link"
-          onClick={handleRelockForTesting}
-        >
-          Re-lock website (testing)
-        </button>
-      </div>
+      
     </main>
   );
 }
