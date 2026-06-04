@@ -40,28 +40,46 @@ export default function App() {
   }, []);
 
   // Check localStorage for prior unlock
-  React.useEffect(() => {
-    try {
-      const flag = localStorage.getItem("weddingAccessGranted");
-      if (flag === "true") {
-        setUnlocked(true);
-      }
-    } catch {
-      // ignore
+React.useEffect(() => {
+  try {
+    const flag = localStorage.getItem("weddingAccessGranted");
+    const expiry = Number(localStorage.getItem("weddingAccessExpiry"));
+
+    if (
+      flag === "true" &&
+      expiry &&
+      Date.now() < expiry
+    ) {
+      setUnlocked(true);
+    } else {
+      localStorage.removeItem("weddingAccessGranted");
+      localStorage.removeItem("weddingAccessExpiry");
+      localStorage.removeItem("weddingAccessCode");
+      localStorage.removeItem("guestCode");
+      setUnlocked(false);
     }
-  }, []);
+  } catch {
+    // ignore
+  }
+}, []);
 
   function handleUnlock(code) {
-    setUnlocked(true);
-    try {
-      localStorage.setItem("weddingAccessGranted", "true");
-      if (code) {
-        localStorage.setItem("weddingAccessCode", code);
-      }
-    } catch {
-      // ignore
+  setUnlocked(true);
+
+  try {
+    const expiry = Date.now() + 20 * 24 * 60 * 60 * 1000; // 30 days
+
+    localStorage.setItem("weddingAccessGranted", "true");
+    localStorage.setItem("weddingAccessExpiry", String(expiry));
+
+    if (code) {
+      localStorage.setItem("weddingAccessCode", code);
+      localStorage.setItem("guestCode", code);
     }
+  } catch {
+    // ignore
   }
+}
 
   return (
     <HashRouter>
