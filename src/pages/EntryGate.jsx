@@ -33,7 +33,7 @@ export default function EntryGate({ onUnlock }) {
     setError("");
     setLoading(true);
 
-    const normalizedCode = code.trim().toUpperCase();
+const normalizedCode = code.trim();
 
     try {
       // We validate the code against your Google Sheet immediately
