@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { MapContainer, TileLayer, Marker, useMap } from "react-leaflet";
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
@@ -10,6 +10,7 @@ const pinIcon = L.divIcon({
   html: `<div class="pin-marker"><span class="pin-marker-dot"></span></div>`,
   iconSize: [22, 22],
   iconAnchor: [11, 22],
+  popupAnchor: [0, -24],
 });
 
 const moments = [
@@ -69,9 +70,51 @@ function FitToMoments({ moments }) {
   return null;
 }
 
+function MomentMarker({ moment, onSelect, onDeselect }) {
+  return (
+    <Marker
+      position={[moment.lat, moment.lng]}
+      icon={pinIcon}
+      eventHandlers={{
+        mouseover: (e) => onSelect(e, moment),
+        mousemove: (e) => onSelect(e, moment),
+        mouseout: onDeselect,
+        click: (e) => onSelect(e, moment),
+      }}
+    />
+  );
+}
+
 export default function Moments() {
-  const [selectedPin, setSelectedPin] = useState(null);
+  const [selectedMoment, setSelectedMoment] = useState(null);
   const [cardPos, setCardPos] = useState({ x: 0, y: 0 });
+
+  function handleSelect(e, moment) {
+    const sourceEvent = e.originalEvent || e;
+    const cardWidth = 320;
+    const cardHeight = 340;
+    const padding = 20;
+
+    let x = sourceEvent.clientX + 18;
+    let y = sourceEvent.clientY;
+
+    if (x + cardWidth > window.innerWidth - padding) {
+      x = sourceEvent.clientX - cardWidth - 18;
+    }
+    if (y - cardHeight / 2 < padding) {
+      y = padding + cardHeight / 2;
+    }
+    if (y + cardHeight / 2 > window.innerHeight - padding) {
+      y = window.innerHeight - padding - cardHeight / 2;
+    }
+
+    setSelectedMoment(moment);
+    setCardPos({ x, y });
+  }
+
+  function handleDeselect() {
+    setSelectedMoment(null);
+  }
 
   useEffect(() => {
     const urls = moments.map((m) => m.img).filter(Boolean);
@@ -96,31 +139,6 @@ export default function Moments() {
       cancelled = true;
     };
   }, []);
-
-  function handlePinHover(e, pin) {
-    const cardWidth = 340;
-    const cardHeight = 360;
-    const padding = 20;
-
-    const sourceEvent = e.originalEvent || e;
-    let x = sourceEvent.clientX + 18;
-    let y = sourceEvent.clientY;
-
-    if (x + cardWidth > window.innerWidth - padding) {
-      x = sourceEvent.clientX - cardWidth - 18;
-    }
-
-    if (y - cardHeight / 2 < padding) {
-      y = padding + cardHeight / 2;
-    }
-
-    if (y + cardHeight / 2 > window.innerHeight - padding) {
-      y = window.innerHeight - padding - cardHeight / 2;
-    }
-
-    setSelectedPin(pin);
-    setCardPos({ x, y });
-  }
 
   return (
     <main className="container">
@@ -150,17 +168,41 @@ export default function Moments() {
           max-width: 1200px;
           height: 640px;
           margin: 0 auto 80px auto;
-          background: white;
+          background: #eef0e9;
           border-radius: 20px;
           overflow: hidden;
           box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+          border: 1px solid rgba(123,79,63,0.15);
         }
 
         .moments-leaflet {
           width: 100%;
           height: 100%;
-          background: #eef3f6;
+          background: #eef0e9;
           font-family: "Cormorant Garamond", serif;
+        }
+
+        /* Hand-drawn / illustrated wash over the base map tiles */
+        .moments-leaflet .leaflet-tile-pane {
+          filter: sepia(38%) saturate(78%) hue-rotate(-6deg) brightness(1.06) contrast(0.92);
+        }
+
+        .moments-leaflet::after {
+          content: "";
+          position: absolute;
+          inset: 0;
+          pointer-events: none;
+          z-index: 450;
+          background:
+            radial-gradient(circle at 30% 20%, rgba(255,255,255,0.10), transparent 60%),
+            repeating-linear-gradient(
+              45deg,
+              rgba(123,79,63,0.025) 0px,
+              rgba(123,79,63,0.025) 2px,
+              transparent 2px,
+              transparent 6px
+            );
+          mix-blend-mode: multiply;
         }
 
         .pin-marker {
@@ -168,7 +210,7 @@ export default function Moments() {
           width: 22px;
           height: 22px;
           background: #7b4f3f;
-          border: 2px solid white;
+          border: 2px solid #fbf7f1;
           border-radius: 50% 50% 50% 0;
           transform: rotate(-45deg);
           box-shadow: 0 3px 8px rgba(0,0,0,0.25), 0 0 0 0 rgba(123,79,63,0.35);
@@ -181,7 +223,7 @@ export default function Moments() {
           position: absolute;
           width: 8px;
           height: 8px;
-          background: white;
+          background: #fbf7f1;
           border-radius: 50%;
           top: 50%;
           left: 50%;
@@ -202,10 +244,10 @@ export default function Moments() {
         .hover-memory-card {
           position: fixed;
           width: 320px;
-          background: white;
+          background: #fffaf4;
           border-radius: 20px;
           overflow: hidden;
-          box-shadow: 0 25px 60px rgba(0,0,0,0.18);
+          box-shadow: 0 25px 60px rgba(0,0,0,0.2);
           z-index: 9999;
           pointer-events: none;
           transform: translate(0, -50%);
@@ -224,23 +266,19 @@ export default function Moments() {
         .hover-memory-card .memory-image iframe {
           width: 100%;
           height: 100%;
-          object-fit: contain;
+          object-fit: cover;
           display: block;
           border: 0;
         }
 
-        .memory-content {
-          padding: 0;
-        }
-
-        .memory-title {
+        .hover-memory-card .memory-title {
           font-family: "Cormorant Garamond", serif;
-          font-size: 1.65rem;
+          font-size: 1.5rem;
           font-weight: 500;
           letter-spacing: 0.02em;
           color: #2c3e50;
           text-align: center;
-          padding: 22px 18px;
+          padding: 16px 16px;
         }
 
         @media (max-width: 768px) {
@@ -264,6 +302,10 @@ export default function Moments() {
             width: auto;
             z-index: 9999;
           }
+
+          .hover-memory-card .memory-image {
+            height: 200px;
+          }
         }
       `}</style>
 
@@ -274,7 +316,7 @@ export default function Moments() {
       <p className="map-intro">
         Some favourite places from the last ten years of travelling, hiking,
         getting lost and occasionally surviving questionable camping weather.
-        Zoom and drag around the map to explore.
+        Zoom and drag around the map to explore — tap a pin to see the memory.
       </p>
 
       <div className="map-wrapper">
@@ -289,55 +331,37 @@ export default function Moments() {
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
           />
           <FitToMoments moments={moments} />
-          {moments.map((pin, i) => (
-            <Marker
+          {moments.map((moment, i) => (
+            <MomentMarker
               key={i}
-              position={[pin.lat, pin.lng]}
-              icon={pinIcon}
-              eventHandlers={{
-                mouseover: (e) => handlePinHover(e, pin),
-                mousemove: (e) => handlePinHover(e, pin),
-                mouseout: () => setSelectedPin(null),
-                click: (e) => handlePinHover(e, pin),
-              }}
+              moment={moment}
+              onSelect={handleSelect}
+              onDeselect={handleDeselect}
             />
           ))}
         </MapContainer>
       </div>
 
-      {selectedPin && (
+      {selectedMoment && (
         <div
           className="hover-memory-card"
-          style={{
-            left: `${cardPos.x}px`,
-            top: `${cardPos.y}px`,
-          }}
+          style={{ left: `${cardPos.x}px`, top: `${cardPos.y}px` }}
         >
           <div className="memory-image">
-            {selectedPin.youtube ? (
+            {selectedMoment.youtube ? (
               <iframe
-                src={selectedPin.youtube}
-                title={selectedPin.label}
+                src={selectedMoment.youtube}
+                title={selectedMoment.label}
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen
               />
-            ) : selectedPin.video ? (
-              <video
-                src={selectedPin.video}
-                autoPlay
-                muted
-                loop
-                playsInline
-                controls
-              />
+            ) : selectedMoment.video ? (
+              <video src={selectedMoment.video} autoPlay muted loop playsInline controls />
             ) : (
-              <img src={selectedPin.img} alt={selectedPin.label} />
+              <img src={selectedMoment.img} alt={selectedMoment.label} loading="lazy" />
             )}
           </div>
-
-          <div className="memory-content">
-            <div className="memory-title">{selectedPin.label}</div>
-          </div>
+          <div className="memory-title">{selectedMoment.label}</div>
         </div>
       )}
     </main>
