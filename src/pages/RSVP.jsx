@@ -283,7 +283,7 @@ export default function RSVP() {
                           checked={att === "Yes"}
                           onChange={() => setAttendanceFor(m.guestId, "Yes")}
                         />
-                        <span>Yes, I’ll be there to dance under the gum trees</span>
+                        <span>Yes, looking forward to celebrating!</span>
                       </label>
 
                       <label className="choice">
@@ -369,7 +369,7 @@ export default function RSVP() {
                           checked={friday === "No"}
                           onChange={() => setFriday("No")}
                         />
-                        <span>No thanks, we’ll see you on Saturday.</span>
+                        <span>No thanks, see you on Saturday.</span>
                       </label>
                     </div>
                   </div>
@@ -377,11 +377,8 @@ export default function RSVP() {
 
                 <div className="rsvp-tile">
                   <h4>
-  We’ll be wrapping up the weekend with a relaxed farewell breakfast on Sunday morning — would you like to join us?
+  We’ll be wrapping up the weekend with a relaxed farewell picnic on Sunday morning (location tbd) — would you like to join us?
 </h4>
-
-<p className="small-note">
-If you’d like to join us for the farewell breakfast, we’ll ask for a small contribution of $20 per person closer to the date to help cover catering.</p>
 
                   <div className="choice-row two-col">
                     <label className="choice">
@@ -473,7 +470,8 @@ If you’d like to join us for the farewell breakfast, we’ll ask for a small c
                 )}
 
                 <div className="rsvp-tile">
-                  <h4>Emails for updates & Notes</h4>
+                  <h4>For important updates and details please provide your email address
+              </h4>
 
                   <input
                     type="email"
