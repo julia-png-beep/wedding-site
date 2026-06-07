@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 const base = import.meta.env.BASE_URL;
 
@@ -58,6 +58,32 @@ export default function Moments() {
     { top: "67%", left: "69%", img: `${base}Hamilton2022.jpeg`, label: "Hamilton Island" },
   ];
 
+  useEffect(() => {
+    const urls = [...europePins, ...australiaPins]
+      .map((pin) => pin.img)
+      .filter(Boolean);
+
+    let cancelled = false;
+    let index = 0;
+
+    function preloadNext() {
+      if (cancelled || index >= urls.length) return;
+      const img = new Image();
+      img.src = urls[index++];
+      img.onload = img.onerror = () => {
+        const schedule = window.requestIdleCallback || ((cb) => setTimeout(cb, 200));
+        schedule(preloadNext);
+      };
+    }
+
+    const schedule = window.requestIdleCallback || ((cb) => setTimeout(cb, 200));
+    schedule(preloadNext);
+
+    return () => {
+      cancelled = true;
+    };
+  }, []);
+
   function handlePinHover(e, pin) {
     const cardWidth = 340;
     const cardHeight = 360;
@@ -106,7 +132,10 @@ export default function Moments() {
                 handlePinHover(e, pin);
               }}
             >
-              <div className="pin-dot"></div>
+              <div className="pin-marker">
+                <span className="pin-marker-dot"></span>
+              </div>
+              <span className="pin-label">{pin.label}</span>
             </div>
           ))}
         </div>
@@ -201,43 +230,69 @@ export default function Moments() {
 
         .map-pin {
           position: absolute;
-          transform: translate(-50%, -50%);
+          transform: translate(-50%, -100%);
           cursor: pointer;
           z-index: 10;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
         }
 
-        .pin-dot {
+        .pin-marker {
           position: relative;
-          width: 8px;
-          height: 8px;
+          width: 22px;
+          height: 22px;
           background: #7b4f3f;
+          border: 2px solid white;
           border-radius: 50% 50% 50% 0;
           transform: rotate(-45deg);
-          box-shadow: 0 0 0 0 rgba(123,79,63,0.22);
+          box-shadow: 0 3px 8px rgba(0,0,0,0.25), 0 0 0 0 rgba(123,79,63,0.35);
           animation: pulse 4s infinite;
-          transition: transform 0.2s ease;
+          transition: transform 0.2s ease, background 0.2s ease;
         }
 
-        .pin-dot::after {
-          content: "";
+        .pin-marker-dot {
           position: absolute;
-          width: 3px;
-          height: 3px;
+          width: 8px;
+          height: 8px;
           background: white;
           border-radius: 50%;
-          top: 2.5px;
-          left: 2.5px;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%) rotate(45deg);
         }
 
-        .map-pin:hover .pin-dot {
-          transform: rotate(-45deg) scale(1.08);
+        .map-pin:hover .pin-marker {
+          transform: rotate(-45deg) scale(1.15);
           background: #5e3b2f;
         }
 
+        .pin-label {
+          margin-top: 6px;
+          font-family: "Cormorant Garamond", serif;
+          font-size: 0.95rem;
+          font-weight: 600;
+          color: #2c3e50;
+          background: rgba(255,255,255,0.85);
+          padding: 2px 9px;
+          border-radius: 8px;
+          white-space: nowrap;
+          box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+          opacity: 0;
+          transform: translateY(-4px);
+          transition: opacity 0.2s ease, transform 0.2s ease;
+          pointer-events: none;
+        }
+
+        .map-pin:hover .pin-label {
+          opacity: 1;
+          transform: translateY(0);
+        }
+
         @keyframes pulse {
-          0% { box-shadow: 0 0 0 0 rgba(123,79,63,0.5); }
-          70% { box-shadow: 0 0 0 12px rgba(123,79,63,0); }
-          100% { box-shadow: 0 0 0 0 rgba(123,79,63,0); }
+          0% { box-shadow: 0 3px 8px rgba(0,0,0,0.25), 0 0 0 0 rgba(123,79,63,0.45); }
+          70% { box-shadow: 0 3px 8px rgba(0,0,0,0.25), 0 0 0 14px rgba(123,79,63,0); }
+          100% { box-shadow: 0 3px 8px rgba(0,0,0,0.25), 0 0 0 0 rgba(123,79,63,0); }
         }
 
         .hover-memory-card {
@@ -324,8 +379,8 @@ export default function Moments() {
 
     
 
-      <TravelMap image={australiaMap} pins={australiaPins} />
-  <TravelMap image={europeMap} pins={europePins} />
+      <TravelMap title="Australia & New Zealand" image={australiaMap} pins={australiaPins} />
+      <TravelMap title="Europe" image={europeMap} pins={europePins} />
       {selectedPin && (
         <div
           className="hover-memory-card"
