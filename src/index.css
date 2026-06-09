@@ -32,7 +32,7 @@ a:hover { color: var(--clay-ink); }
 .container { max-width: 960px; margin-inline: auto; padding: clamp(18px, 2vw, 24px); }
 .block { margin: clamp(28px, 5vw, 56px) 0; }
 .lead { font-size: clamp(1.05rem, .9rem + .5vw, 1.25rem); color: #2a2a2a; }
-.title { font-family: "Playfair Display", serif; font-weight: 600; font-size: clamp(30px, 2.2rem + .5vw, 44px); margin: 24px 0 12px; }
+.title { font-family: "Playfair Display", serif; font-weight: 600; font-size: clamp(30px, 2.2rem + .5vw, 44px); margin: 24px 0 12px; color: var(--clay)}
 
 /* ===== Nav ===== */
 .nav {
@@ -723,6 +723,5 @@ body {
     transform: scale(1);
   }
 }
-/* src/index.css or App.css */
-html { scroll-behavior: smooth; }
+
 

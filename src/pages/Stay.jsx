@@ -59,7 +59,7 @@ export default function Stay() {
                 Kangaroo Valley Golf & Country Retreat
               </a>
             </strong>{" "}
-            — One to three bedroom cottages in the middle of Kangaroo Valley's golf club
+            — One to three bedroom cottages set within Kangaroo Valley's golf course
           </li>
           <li>
             <strong>

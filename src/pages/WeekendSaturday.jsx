@@ -32,7 +32,7 @@ export default function WeekendSaturday() {
         </p>
 
         <p>
-          We can’t wait to celebrate with you at Wildwood. Arrive from
+          We can’t wait to celebrate with you at Wildwood. Arrive at
           2:30&nbsp;pm for a welcome drink before wandering down to the Valley
           Lookout for our 3&nbsp;pm ceremony among the trees. After we say “I
           do,” join us for cocktails, canapés, and golden-hour views on the
