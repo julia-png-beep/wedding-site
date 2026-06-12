@@ -43,6 +43,7 @@ export default function Home() {
   className="home-photo"
   src={`${import.meta.env.BASE_URL}Iceland1.jpg`}
   alt="Evening by the lake"
+  loading="lazy"
 />
       </section>
 
@@ -70,7 +71,7 @@ export default function Home() {
           </a>
           <a className="home-card" href="#/weekend/schedule/sunday">
             <h3>Sunday</h3>
-            <p>Farewell breakfast at Wildwood</p>
+            <p>Recovery brunch — location TBC</p>
             <span>→</span>
           </a>
         </div>

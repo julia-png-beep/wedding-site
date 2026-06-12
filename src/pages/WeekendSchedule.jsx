@@ -20,8 +20,8 @@ export default function WeekendSchedule() {
 
           {/* Sunday */}
           <a className="home-card" href="#/weekend/sunday">
-            <h3>Sunday · Farewell Breakfast</h3>
-            <p>Join us for coffee, bacon and egg rolls and pastries at Wildwood </p>
+            <h3>Sunday · Recovery Brunch</h3>
+            <p>A relaxed recovery brunch to ease into the day — location TBC</p>
             <span>→</span>
           </a>
         </div>

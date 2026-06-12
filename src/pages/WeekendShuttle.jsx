@@ -45,6 +45,7 @@ export default function ShuttleBus() {
             src={`${base}Busmap.jpg`}
             alt="Shuttle bus route map"
             className="map-image"
+            loading="lazy"
             onClick={() => setOpen(true)}
           />
 

@@ -17,30 +17,25 @@ export default function WeekendSunday() {
 >
   ← Back
 </button>
-        <h2 className="title">Sunday · Farewell Breakfast</h2>
+        <h2 className="title">Sunday · Recovery Brunch</h2>
 
         <p>
-           <strong>Wildwood, Kangaroo Valley</strong>
+          <strong>Location TBC</strong>
           <br />
-          10:00 am – 2:00 pm
+          Details will be shared closer to the date
         </p>
 
         <p>
-          Before you hit the road, join us at Wildwood for a relaxed Sunday morning.
-Grab a coffee, a bite to eat, and enjoy a slow farewell in the bush
-before we all head home.
+          The celebrations aren't quite over yet — join us Sunday morning for a
+          slow, relaxed recovery brunch. Think good food, good company, and
+          absolutely no rush. Whether you're nursing a sore head or just not
+          ready to say goodbye, come as you are and ease into the day with us.
         </p>
 
-        {/* Google Maps Embed for Wildwood */}
-        <div className="map" style={{ marginTop: "1.5rem" }}>
-          <iframe
-            title="Wildwood Kangaroo Valley Map"
-            src="https://www.google.com/maps?output=embed&q=Wildwood%20Kangaroo%20Valley%20NSW"
-            loading="lazy"
-            allowFullScreen
-            referrerPolicy="no-referrer-when-downgrade"
-          ></iframe>
-        </div>
+        <p>
+          We're still finalising the perfect spot, so keep an eye out for
+          details closer to the date. We promise it'll be worth the wait. 🧺
+        </p>
       </section>
     </main>
   );

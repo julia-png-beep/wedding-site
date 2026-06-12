@@ -41,18 +41,11 @@ export default function WeekendGettingThere() {
           is by car. 
         </p>
 
-        <h3 className="subtitle" style={{ color: "var(--clay)" }}>🚌 Public Transport (limited)</h3>
+        <h3 className="subtitle" style={{ color: "var(--clay)" }}>🚌 Public Transport</h3>
         <p>
-          Public transport options to Kangaroo Valley are very limited.
-          From Sydney, you can take a train or coach to Moss Vale, then connect via a local bus — but services are infrequent
-          and may not run on weekends.
+          Public transport to Kangaroo Valley is very limited, so we'd recommend driving or arranging
+          a lift if you can.
         </p>
-        <p>
-          From Canberra, regional coach routes or trains can get you partway, though you’ll still need a car or taxi
-          for the final stretch into the Valley.
-        </p>
-
-        <p><strong>💡 Tip:</strong> It’s best to drive if you can — the journey’s part of the adventure!</p>
 
         <div className="map" style={{ marginTop: "1.5rem" }}>
           <iframe

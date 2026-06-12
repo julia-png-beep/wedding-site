@@ -2,6 +2,16 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 
+// Phone numbers are base64-encoded so they don't appear as plain searchable
+// text in the shipped JS bundle (decoded only at render time, for guests
+// who've already entered the access code).
+function decodePhone(encoded) {
+  return atob(encoded);
+}
+
+const JULIA_PHONE = decodePhone("MDQxMSA4MjEgOTMy");
+const GERARD_PHONE = decodePhone("MDQwNSAzMjAgNzU4");
+
 
 export default function FAQ() {
   const faqs = [
@@ -124,8 +134,8 @@ export default function FAQ() {
       a: (
         <>
           <p>Feel free to contact us if you have any further questions.</p>
-          <p>Julia:  0411 821 932</p>
-          <p>Gerard: 0405 320 758</p>
+          <p>Julia:  {JULIA_PHONE}</p>
+          <p>Gerard: {GERARD_PHONE}</p>
           <p>We're happy to help with anything from travel tips to outfit dilemmas.</p>
         </>
       ),

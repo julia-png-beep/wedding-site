@@ -32,7 +32,73 @@ a:hover { color: var(--clay-ink); }
 .container { max-width: 960px; margin-inline: auto; padding: clamp(18px, 2vw, 24px); }
 .block { margin: clamp(28px, 5vw, 56px) 0; }
 .lead { font-size: clamp(1.05rem, .9rem + .5vw, 1.25rem); color: #2a2a2a; }
-.title { font-family: "Playfair Display", serif; font-weight: 600; font-size: clamp(30px, 2.2rem + .5vw, 44px); margin: 24px 0 12px; }
+.title {
+  font-family: "Playfair Display", serif;
+  font-weight: 600;
+  font-size: clamp(30px, 2.2rem + .5vw, 44px);
+  margin: 24px 0 12px;
+  background: linear-gradient(100deg, var(--color-heading) 35%, var(--clay) 50%, var(--color-heading) 65%);
+  background-size: 240% auto;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  animation: titleShimmer 9s linear infinite;
+}
+@keyframes titleShimmer {
+  to { background-position: -240% center; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .title { animation: none; color: var(--color-heading); background: none; -webkit-background-clip: unset; background-clip: unset; }
+}
+
+/* ===== Sparkle-on-hover (subtle, pure CSS, no JS) =====
+   A small dusting of glints that appears around an element on
+   hover/focus — much sparser and lighter-weight than a full
+   particle system. Apply `.sparkle` to buttons, nav links, cards,
+   images, etc. wherever a touch of pizzazz is wanted. */
+.sparkle {
+  position: relative;
+  display: inline-block;
+}
+.sparkle::before,
+.sparkle::after {
+  content: "✦";
+  position: absolute;
+  font-size: 0.7em;
+  line-height: 1;
+  color: var(--clay);
+  opacity: 0;
+  transform: scale(0.4) rotate(0deg);
+  pointer-events: none;
+  transition: opacity 0.45s ease, transform 0.55s ease;
+  text-shadow: 0 0 6px rgba(201, 116, 47, 0.55);
+}
+.sparkle::before {
+  top: -0.35em;
+  right: -0.6em;
+  transition-delay: 0s;
+}
+.sparkle::after {
+  content: "✧";
+  bottom: -0.3em;
+  left: -0.55em;
+  font-size: 0.55em;
+  transition-delay: 0.12s;
+}
+.sparkle:hover::before,
+.sparkle:focus-visible::before {
+  opacity: 1;
+  transform: scale(1) rotate(18deg);
+}
+.sparkle:hover::after,
+.sparkle:focus-visible::after {
+  opacity: 0.85;
+  transform: scale(1) rotate(-14deg);
+}
+@media (prefers-reduced-motion: reduce) {
+  .sparkle::before,
+  .sparkle::after { display: none; }
+}
 
 /* ===== Nav ===== */
 .nav {
@@ -44,9 +110,12 @@ a:hover { color: var(--clay-ink); }
   gap: 10px;
   justify-content: center;
   padding: 10px clamp(10px, 3vw, 18px);
-  background: color-mix(in oklab, var(--leaf) 92%, black 0%);
-  backdrop-filter: blur(6px);
+  background: color-mix(in oklab, var(--leaf) 92%, black 8%);
   border-bottom: 1px solid rgba(255, 255, 255, .14);
+  transition: transform .25s ease;
+}
+.nav-hidden {
+  transform: translateY(-100%);
 }
 .nav a {
   color: #fff;
@@ -168,6 +237,15 @@ a:hover { color: var(--clay-ink); }
   color: var(--clay);
 }
 .btn-link:hover { color: var(--clay-ink); }
+button.btn-link {
+  display: inline;
+  padding: 0;
+  margin: 0;
+  background: none;
+  border: none;
+  font: inherit;
+  cursor: pointer;
+}
 
 /* ===== Cards & Grids ===== */
 .home-grid {
@@ -456,21 +534,22 @@ a:hover { color: var(--clay-ink); }
 
 }
 
-/* Headings */
-.title {
+/* Headings (scoped to RSVP's narrow container so they don't override the
+   site-wide .title/.lead/.btn rules defined near the top of this file) */
+.container--narrow .title {
   font-family: "Playfair Display", serif;
   font-size: 2rem;
   color: var(--clay, #784a3b);
   margin-bottom: 0.5rem;
 }
 
-.lead {
+.container--narrow .lead {
   font-size: 1.1rem;
   color: #333;
 }
 
 /* Buttons */
-.btn {
+.container--narrow .btn {
   display: inline-block;
   font-weight: 600;
   background: var(--clay, #784a3b);
@@ -482,18 +561,18 @@ a:hover { color: var(--clay-ink); }
   transition: all 0.2s ease;
 }
 
-.btn:hover {
+.container--narrow .btn:hover {
   opacity: 0.9;
   transform: translateY(-1px);
 }
 
-.btn-link {
+.container--narrow .btn-link {
   color: var(--clay, #784a3b);
   text-decoration: none;
   font-weight: 600;
 }
 
-.btn-link:hover {
+.container--narrow .btn-link:hover {
   text-decoration: underline;
 }
 
@@ -583,7 +662,7 @@ input[type="radio"] {
 
 /* Soft paper-like background pattern */
 body {
-  background-color: var(--wildwood-cream);
+  background-color: var(--cream);
   background-image: radial-gradient(
       circle at 10% 20%,
       rgba(182, 195, 160, 0.08) 0%,
@@ -602,10 +681,10 @@ body {
 .rsvp-success {
   position: relative;
   padding: 1.5rem;
-  border: 2px solid var(--wildwood-eucalyptus);
+  border: 2px solid var(--leaf);
   border-radius: 14px;
   background: rgba(182, 195, 160, 0.15);
-  color: var(--wildwood-clay);
+  color: var(--clay);
   text-align: center;
   font-weight: 600;
   overflow: hidden;

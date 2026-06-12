@@ -16,7 +16,7 @@ export default function Weekend() {
         </Link>
         <Link className="home-card" to="/weekend/schedule/sunday">
           <h3>Sunday</h3>
-          <p>Farewell breakfast at Wildwood</p>
+          <p>Recovery brunch — location TBC</p>
           <span>→</span>
         </Link>
       </div>
