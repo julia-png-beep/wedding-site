@@ -37,8 +37,10 @@ export default function WeekendGettingThere() {
 
         <h3 className="subtitle" style={{ color: "var(--clay)" }}>✈️ By Air + Car</h3>
         <p>
-          The nearest airports are Sydney and Canberra. From either city, the easiest way to reach Wildwood
-          is by car. 
+          The nearest airports are Sydney and Canberra. From either city, the easiest way to reach Kangaroo Valley
+          is by car.
+
+          Parking at Wildwood itself is limited, so we suggest taking advantage of the bus service. If your accomodation isn't on the bus route please reach out and we'll sort something out.
         </p>
 
         <h3 className="subtitle" style={{ color: "var(--clay)" }}>🚌 Public Transport</h3>
@@ -55,6 +57,7 @@ export default function WeekendGettingThere() {
             referrerPolicy="no-referrer-when-downgrade"
             title="Wildwood Kangaroo Valley Map"
           ></iframe>
+          
         </div>
       </section>
     </main>

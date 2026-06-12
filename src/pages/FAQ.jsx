@@ -69,7 +69,7 @@ export default function FAQ() {
       q: "🚗 Is there parking at the venue?",
       a: (
         <p>
-          Yes, limited parking is available on site. If you plan to drive, please let us know
+          Limited parking is available on site. We ask that you make use of the bus if possible. If this isn't possible, please let us know
           in your RSVP so we can allocate a spot. Car-pooling is encouraged.
         </p>
       ),

@@ -32,7 +32,7 @@ export default function Home() {
           className="lead"
           style={{ maxWidth: "720px", margin: "0 auto 16px" }}
         >
-          Our journey has included snowstorms, soggy tents, long-haul trips and getting lost in the wilderness more times than we'll admit.<br />
+          Our journey has included snowstorms, soggy tents, long-haul trips and getting lost in the wilderness more times than we'd like to admit.<br />
           <br />
           Join us in the bush for vows, food, music and a firepit with our
           favourite people.<br />
