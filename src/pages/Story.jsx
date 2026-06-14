@@ -9,7 +9,7 @@ const items = [
     label: "Coffee date",
     icon: "☕",
     text:
-      "Whether it was August or September depends on who you ask, but we do agree that a quick coffee somehow turned into hours of talking about travel, languages, German literature and Austrian dialects. Somewhere in all of that, this began — and before long, Melbourne became the first of many places we would travel to together.",
+      "Whether it was August or September depends on who you ask, but we do agree that a quick coffee somehow turned into hours of talking about travel, languages, German literature and Austrian dialects. Looking back, that was the moment, even if neither of us realised it at the time, and before long Melbourne became the first of many places we would travel to together.",
     img: `${base}Melbourne2016.jpg`,
     caption: "Where it all began ☕",
   },
