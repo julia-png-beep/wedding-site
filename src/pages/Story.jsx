@@ -9,7 +9,7 @@ const items = [
     label: "Coffee date",
     icon: "☕",
     text:
-      "August or September — the exact date is disputed, but what isn't: a quick coffee stretched into hours. Travel, languages, German literature, Austrian dialects. That was the beginning of us — and Melbourne was the first place we explored together.",
+      "Whether it was August or September depends on who you ask, but we do agree that a quick coffee somehow turned into hours of talking about travel, languages, German literature and Austrian dialects. Somewhere in all of that, this began — and before long, Melbourne became the first of many places we would travel to together.",
     img: `${base}Melbourne2016.jpg`,
   },
   {
@@ -17,7 +17,7 @@ const items = [
     label: "Into the wild",
     icon: "⛰️",
     text:
-      "Multi-day hikes through the Budawangs, the Walls of Jerusalem, Cradle Mountain. We got rained on, lost the track, and once watched our tent fold in a summer snowstorm — and loved every minute of it.",
+      "Then came multi-day hikes through the Budawangs, Cradle Mountain and the Tasmanian high country. The Walls of Jerusalem and Central Plateau became one of our favourite places to return to, with plenty of off-track exploring, wrong turns, early starts for photos, and one memorable summer snowstorm that folded our tent. Somehow, it only made us want to go back.",
     img: `${base}DicksonsKingdom.jpeg`,
   },
   {
@@ -25,15 +25,15 @@ const items = [
     label: "Adventures abroad",
     icon: "🌏",
     text:
-      "Europe (more than once — Vienna, Florence, Barcelona, Iceland…), Vietnam, Fiji, New Zealand, the Australian outback. Two people who just can't sit still.",
+      "With Julia's family in Austria, Europe became somewhere we returned to often. Karlstetten was usually our base for trips to places like Florence, Barcelona and Iceland, while closer to home we kept finding excuses to explore Australia too, from coastlines and mountains to the outback. Wherever we were, we usually found ourselves looking for the quieter road, the longer walk, the path a little less travelled and the next landscape or waterfall Gerard would inevitably stop to photograph.",
     img: `${base}Vietnam.jpg`,
   },
   {
     year: "2020 — Apollo",
-    label: "The cat",
+    label: "Apollo Takes Over",
     icon: "🐱",
     text:
-      "In 2020, Apollo joined the family and immediately claimed the best spot on the couch, the bed, and any warm lap he could find. He has not relinquished any of them.",
+      "In 2020, Apollo joined the family and wasted no time claiming the best spot on the couch, the bed, and any warm lap he could find. He has not given up any of them since, though he occasionally allows us to share.",
     img: `${base}familycat.jpg`,
   },
   {
@@ -41,7 +41,7 @@ const items = [
     label: "New chapter",
     icon: "🏡",
     text:
-      "We packed up Sydney and made the move to Canberra — a new city, a slower pace, and more room to breathe. Four proper seasons, the Snowy Mountains on the doorstep, endless trails, and a food and wine scene that keeps surprising us. Turns out slowing down a little was exactly what we needed.",
+      "After years in Sydney, we packed up and moved to Canberra, looking for a new city, a slower pace and a bit more room to breathe. We found four proper seasons, the Snowy Mountains within reach, endless trails, and more good food and wine than we expected. It turned out to be exactly what we needed.",
     img: `${base}MoveToCanberra.jpg`,
   },
   {
@@ -49,7 +49,7 @@ const items = [
     label: "She said yes",
     icon: "❤️",
     text:
-      "A hidden waterfall in the Tasmanian bush — creek on our boots, forest hush all around — Gerard asked, and Julia said yes.",
+      "On our tenth trip to Tasmania, we returned to a hidden waterfall in the Tarkine, the kind of place you only reach if you know where to look. No signs, nobody else around, just the hush of the forest, the sound of water, and the two of us in muddy boots, standing in the creek beneath the falls. Gerard asked, and Julia said yes.",
     img: `${base}tassieproposal1.jpg`,
   },
   {
@@ -57,7 +57,7 @@ const items = [
     label: "Growing family",
     icon: "🤍",
     text:
-      "Right in the middle of planning the wedding, we found out our little family was about to get a whole lot bigger — easily the best surprise detour our journey has ever taken.",
+      "Right in the middle of planning the wedding, we found out our little family was about to get bigger. Before we make it to Kangaroo Valley, we'll be starting our biggest adventure yet, with one more little person along for the ride.",
     img: `${base}palm.jpg`,
   },
   {
@@ -65,7 +65,7 @@ const items = [
     label: "Wildwood",
     icon: "✨",
     text:
-      "Now we get to celebrate with you, in a place that feels like us: green hills, winding roads, and room to breathe.",
+      "After years of chasing waterfalls, mountain tracks and quiet corners of the bush, Wildwood feels like the right place to bring everyone together, surrounded by rainforest, sandstone cliffs, valley views and the quiet of the bush.",
     img: `${base}Wildwoodlook.jpg`,
   },
 ];
@@ -823,10 +823,11 @@ export default function Story() {
           <span className="journey-kicker">a little detour through the past decade</span>
           <h2>Our Journey</h2>
           <p>
-            Travel is the thread that runs through everything we are — the long drives,
-            the missed trains, the muddy boots and the views that made it all worth it.
-            Here's a little of how we got from a chance meeting in Sydney to a wedding
-            in the Kangaroo Valley bush.
+            A lot of our favourite memories have come from travelling together —
+            long drives, questionable directions, muddy boots, waterfall walks,
+            and the views that made every bit of it worth it. Here's a little of
+            how we got from a chance meeting in Sydney to a wedding in the
+            Kangaroo Valley bush.
           </p>
         </section>
 
@@ -878,8 +879,8 @@ export default function Story() {
         >
           <h3>And now, the next adventure <span className="heart">♥</span></h3>
           <p>
-            Thank you for being part of our story so far — we can't wait to write the
-            next chapter with you all beside us in Kangaroo Valley.
+            Thank you for being part of our story so far. We can't wait to
+            celebrate this next part with you all in Kangaroo Valley.
           </p>
           <div className="sparkle-row" aria-hidden>
             <span>✦</span><span>✦</span><span>✦</span><span>✦</span>

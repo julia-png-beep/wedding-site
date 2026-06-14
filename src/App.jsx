@@ -24,6 +24,9 @@ import "./App.css";
 
 const base = import.meta.env.BASE_URL;
 
+const WEB_APP_URL =
+  "https://script.google.com/macros/s/AKfycbzQDmtuPDy-36bIB7KFQ0aJcOkwXPGWdhU5W9VjvwZXTQj4CEzuGhA_v05LvSUWKRR9YA/exec";
+
 const heroImages = [
   `${base}Wildwoodlook.jpg`,
   `${base}Wildwoodwalk.jpg`,
@@ -52,6 +55,15 @@ React.useEffect(() => {
       Date.now() < expiry
     ) {
       setUnlocked(true);
+
+      const code = localStorage.getItem("weddingAccessCode");
+      if (code) {
+        fetch(WEB_APP_URL, {
+          method: "POST",
+          headers: { "Content-Type": "text/plain;charset=utf-8" },
+          body: JSON.stringify({ action: "validate", code }),
+        }).catch(() => {});
+      }
     } else {
       localStorage.removeItem("weddingAccessGranted");
       localStorage.removeItem("weddingAccessExpiry");
