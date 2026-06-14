@@ -11,6 +11,7 @@ const items = [
     text:
       "Whether it was August or September depends on who you ask, but we do agree that a quick coffee somehow turned into hours of talking about travel, languages, German literature and Austrian dialects. Somewhere in all of that, this began — and before long, Melbourne became the first of many places we would travel to together.",
     img: `${base}Melbourne2016.jpg`,
+    caption: "Where it all began ☕",
   },
   {
     year: "2017–present — On the trail",
@@ -19,6 +20,7 @@ const items = [
     text:
       "Then came multi-day hikes through the Budawangs, Cradle Mountain and the Tasmanian high country. The Walls of Jerusalem and Central Plateau became one of our favourite places to return to, with plenty of off-track exploring, wrong turns, early starts for photos, and one memorable summer snowstorm that folded our tent. Somehow, it only made us want to go back.",
     img: `${base}DicksonsKingdom.jpeg`,
+    caption: "Rain, mud, no regrets",
   },
   {
     year: "2017–present — The world",
@@ -27,6 +29,7 @@ const items = [
     text:
       "With Julia's family in Austria, Europe became somewhere we returned to often. Karlstetten was usually our base for trips to places like Florence, Barcelona and Iceland, while closer to home we kept finding excuses to explore Australia too, from coastlines and mountains to the outback. Wherever we were, we usually found ourselves looking for the quieter road, the longer walk, the path a little less travelled and the next landscape or waterfall Gerard would inevitably stop to photograph.",
     img: `${base}Vietnam.jpg`,
+    caption: "Two people who can't sit still",
   },
   {
     year: "2020 — Apollo",
@@ -35,6 +38,7 @@ const items = [
     text:
       "In 2020, Apollo joined the family and wasted no time claiming the best spot on the couch, the bed, and any warm lap he could find. He has not given up any of them since, though he occasionally allows us to share.",
     img: `${base}familycat.jpg`,
+    caption: "The real boss of the house 🐱",
   },
   {
     year: "2024 — Canberra",
@@ -43,6 +47,7 @@ const items = [
     text:
       "After years in Sydney, we packed up and moved to Canberra, looking for a new city, a slower pace and a bit more room to breathe. We found four proper seasons, the Snowy Mountains within reach, endless trails, and more good food and wine than we expected. It turned out to be exactly what we needed.",
     img: `${base}MoveToCanberra.jpg`,
+    caption: "New city, new view",
   },
   {
     year: "January 2025 — The proposal",
@@ -51,6 +56,7 @@ const items = [
     text:
       "On our tenth trip to Tasmania, we returned to a hidden waterfall in the Tarkine, the kind of place you only reach if you know where to look. No signs, nobody else around, just the hush of the forest, the sound of water, and the two of us in muddy boots, standing in the creek beneath the falls. Gerard asked, and Julia said yes.",
     img: `${base}tassieproposal1.jpg`,
+    caption: "She said yes 💍",
   },
   {
     year: "2025 — Expecting",
@@ -59,6 +65,7 @@ const items = [
     text:
       "Right in the middle of planning the wedding, we found out our little family was about to get bigger. Before we make it to Kangaroo Valley, we'll be starting our biggest adventure yet, with one more little person along for the ride.",
     img: `${base}palm.jpg`,
+    caption: "Our biggest adventure yet",
   },
   {
     year: "2026 — Kangaroo Valley",
@@ -67,6 +74,7 @@ const items = [
     text:
       "After years of chasing waterfalls, mountain tracks and quiet corners of the bush, Wildwood feels like the right place to bring everyone together, surrounded by rainforest, sandstone cliffs, valley views and the quiet of the bush.",
     img: `${base}Wildwoodlook.jpg`,
+    caption: "Where our story continues",
   },
 ];
 
@@ -866,7 +874,7 @@ export default function Story() {
                     <div className="photo-frame">
                       <img src={it.img} alt={it.label} loading="lazy" />
                     </div>
-                    <figcaption className="journey-caption">{it.label}</figcaption>
+                    <figcaption className="journey-caption">{it.caption}</figcaption>
                   </figure>
                 </div>
               </div>
