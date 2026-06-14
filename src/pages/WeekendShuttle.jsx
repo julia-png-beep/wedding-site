@@ -30,6 +30,12 @@ export default function ShuttleBus() {
           yourself — just let us know in your RSVP if you'd like a spot on the
           bus. Please check the map below for the route and pick-up locations.
         </p>
+
+        <p>
+          The stops shown are some of the most common spots — use them as a
+          guide, and just let us know where you're staying in your RSVP so we
+          can arrange a route that works for everyone.
+        </p>
       </section>
 
       <section className="block">

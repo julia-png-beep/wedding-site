@@ -32,7 +32,8 @@ export default function FAQ() {
   a: (
     <p>
       The ceremony will begin at <strong>3:00pm</strong>. Please arrive by{" "}
-      <strong>2:30pm</strong> so you have time to park, find a seat and settle in before we begin.
+      <strong>2:30pm</strong> so you have time to wander down to the valley
+      lookout platform, find a seat and settle in before we begin.
     </p>
   ),
 },

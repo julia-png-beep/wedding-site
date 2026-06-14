@@ -33,7 +33,18 @@ export default function ThingsToDo() {
 
         <h3 className="subtitle">Food & Wine</h3>
         <ul className="things">
-          <li>Enjoy coffee or brunch at <strong>The General</strong></li>
+          <li>
+            Enjoy coffee or brunch at{" "}
+            <strong>
+              <a
+                href="https://www.thegeneralcafe.com.au/"
+                target="_blank"
+                rel="noreferrer"
+              >
+                The General
+              </a>
+            </strong>
+          </li>
           <li>
             Explore nearby wineries — our favourites are{" "}
             <strong>
