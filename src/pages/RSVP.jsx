@@ -5,6 +5,9 @@ import "./rsvp.css";
 const WEB_APP_URL =
   "https://script.google.com/macros/s/AKfycbzQDmtuPDy-36bIB7KFQ0aJcOkwXPGWdhU5W9VjvwZXTQj4CEzuGhA_v05LvSUWKRR9YA/exec";
 
+const RSVP_DEADLINE = new Date("2026-09-01T23:59:59+10:00");
+const RSVP_CLOSED = Date.now() > RSVP_DEADLINE.getTime();
+
 export default function RSVP() {
   const [step, setStep] = React.useState("lookup");
   const [code, setCode] = React.useState("");
@@ -36,6 +39,7 @@ export default function RSVP() {
   const [thanksDone, setThanksDone] = React.useState(false);
 
   React.useEffect(() => {
+    if (RSVP_CLOSED) return;
     const savedCode = localStorage.getItem("guestCode");
     if (savedCode && step === "lookup") {
       handleLookup(null, savedCode);
@@ -259,7 +263,20 @@ export default function RSVP() {
           Please RSVP by 1 September 2026.
         </p>
 
-        {step === "lookup" && (
+        {RSVP_CLOSED && (
+          <div style={{ textAlign: "center", padding: "40px 0" }}>
+            <p className="lead">
+              RSVPs closed on 1 September 2026 and can no longer be
+              submitted or updated online.
+            </p>
+            <p>
+              If you need to change your response, please get in touch with
+              us directly.
+            </p>
+          </div>
+        )}
+
+        {!RSVP_CLOSED && step === "lookup" && (
           <div style={{ textAlign: "center", padding: "40px 0" }}>
             <p className="lead">
               {loading ? "Recognising you..." : "Checking your invitation..."}
@@ -273,7 +290,7 @@ export default function RSVP() {
           </div>
         )}
 
-        {step === "form" && household && (
+        {!RSVP_CLOSED && step === "form" && household && (
           <form className="form" onSubmit={handleSubmit}>
             <div className="household-banner">
               <div className="household-name">{household.householdName}</div>
