@@ -831,7 +831,7 @@ export default function Story() {
           <span className="journey-kicker">a little detour through the past decade</span>
           <h2>Our Journey</h2>
           <p>
-            A lot of our favourite memories have come from travelling together —
+            A lot of our favourite memories have come from travelling together:
             long drives, questionable directions, muddy boots, waterfall walks,
             and the views that made every bit of it worth it. Here's a little of
             how we got from a chance meeting in Sydney to a wedding in the
