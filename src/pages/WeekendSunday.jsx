@@ -34,7 +34,7 @@ export default function WeekendSunday() {
 
         <p>
           We're still finalising the perfect spot, so keep an eye out for
-          details closer to the date. We promise it'll be worth the wait. 🧺
+          details closer to the date. We promise it'll be worth the wait.
         </p>
       </section>
     </main>
