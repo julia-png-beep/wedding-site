@@ -13,7 +13,7 @@ const items = [
     img: `${base}Melbourne2016.jpg`,
   },
   {
-    year: "2016–2024 — On the trail",
+    year: "2017–present — On the trail",
     label: "Into the wild",
     icon: "⛰️",
     text:
@@ -21,7 +21,7 @@ const items = [
     img: `${base}DicksonsKingdom.jpeg`,
   },
   {
-    year: "2017–2024 — The world",
+    year: "2017–present — The world",
     label: "Adventures abroad",
     icon: "🌏",
     text:
