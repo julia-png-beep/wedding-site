@@ -3,7 +3,7 @@ import React from "react";
 import "./rsvp.css";
 
 const WEB_APP_URL =
-  "https://script.google.com/macros/s/AKfycbyN1xtpATf4Ha5rLvEGEnD1-ds42KgezWBnlw2_dnz6nYVwxdgoy9zSo1xeF5ivyBYPpw/exec";
+  "https://script.google.com/macros/s/AKfycbzQDmtuPDy-36bIB7KFQ0aJcOkwXPGWdhU5W9VjvwZXTQj4CEzuGhA_v05LvSUWKRR9YA/exec";
 
 export default function RSVP() {
   const [step, setStep] = React.useState("lookup");
@@ -65,16 +65,41 @@ export default function RSVP() {
 
       const a = {};
       const diets = {};
+      const hasResponded = members.some((m) => m.rsvp);
 
       members.forEach((m) => {
-        a[m.guestId] = m.invited ? "Yes" : "No";
-        diets[m.guestId] = { needed: "No", details: "" };
+        a[m.guestId] = m.rsvp || (m.invited ? "Yes" : "No");
+        diets[m.guestId] = {
+          needed: m.dietary ? "Yes" : "No",
+          details: m.dietary || "",
+        };
       });
 
-      const firstEmail = members.find((m) => m.email)?.email || "";
+      const firstEmail =
+        hh.email1 || members.find((m) => m.email)?.email || "";
       setEmail1(firstEmail);
+      setEmail2(hh.email2 || "");
+      setFriday(hh.friday || "No");
+      setSunday(hh.sunday || "No");
+      setNotes(hh.notes || "");
+
+      const transportVal = String(hh.transport || "");
+      if (transportVal.toLowerCase().startsWith("shuttle")) {
+        setTransport("Shuttle");
+        const parts = transportVal.split(" - ");
+        setStayWhere(parts.length > 1 ? parts.slice(1).join(" - ").trim() : "");
+      } else {
+        setTransport("Drive");
+      }
+
+      const plusOneMember = members.find((m) => m.plusOne && m.plusOneName);
+      if (plusOneMember) {
+        setPlusOneEnabled(true);
+        setPlusOneName(plusOneMember.plusOneName);
+      }
 
       prepared.anyPlusAllowed = members.some((m) => m.plusOneAllowed);
+      prepared.hasResponded = hasResponded;
 
       setCode(codeToUse);
       setHousehold(prepared);
@@ -257,6 +282,19 @@ export default function RSVP() {
                 Code: <code>{code}</code>
               </div>
             </div>
+
+            {household.hasResponded && (
+              <div
+                className="rsvp-tile"
+                style={{ background: "#eef3ec", border: "1px solid #cdd9cf" }}
+              >
+                <strong>You've already submitted an RSVP.</strong>
+                <p style={{ margin: "6px 0 0" }}>
+                  Your previous answers are pre-filled below — feel free to
+                  update anything and send it again to amend your RSVP.
+                </p>
+              </div>
+            )}
 
             <p className="lead" style={{ textAlign: "center" }}>
               We’re getting married! Can you make it to our celebration?
@@ -498,6 +536,10 @@ export default function RSVP() {
             >
               {submitting
                 ? "Sending…"
+                : household.hasResponded
+                ? allNo
+                  ? "Update regrets 💌"
+                  : "Update RSVP 🥂"
                 : allNo
                 ? "Send regrets 💌"
                 : "Send RSVP 🥂"}
