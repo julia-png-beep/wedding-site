@@ -1,5 +1,6 @@
 // src/pages/EntryGate.jsx
 import React from "react";
+import { useTranslation } from "react-i18next";
 import "./entrygate.css";
 
 const WEB_APP_URL =
@@ -22,6 +23,7 @@ export default function EntryGate({ onUnlock }) {
   const [error, setError] = React.useState("");
   const [loading, setLoading] = React.useState(false);
   const [timeLeft, setTimeLeft] = React.useState(() => computeTimeLeft());
+  const { t } = useTranslation();
 
   React.useEffect(() => {
     const id = setInterval(() => setTimeLeft(computeTimeLeft()), 1000);
@@ -49,10 +51,10 @@ const normalizedCode = code.trim();
         localStorage.setItem("guestCode", normalizedCode);
         onUnlock?.(normalizedCode);
       } else {
-        setError("Invalid guest code. Please check your invitation.");
+        setError(t('entryGate.invalidCode'));
       }
     } catch (err) {
-      setError("Technical glitch. Please try again in a moment.");
+      setError(t('entryGate.technicalError'));
     } finally {
       setLoading(false);
     }
@@ -63,28 +65,28 @@ const normalizedCode = code.trim();
   return (
     <div className="entrygate">
       <div className="entrygate-card">
-        <h1 className="entry-title">Gerard &amp; Julia&apos;s</h1>
-        <p className="entry-sub">Bush Wedding</p>
+        <h1 className="entry-title" dangerouslySetInnerHTML={{ __html: t('entryGate.title') }} />
+        <p className="entry-sub">{t('entryGate.subtitle')}</p>
 
         <div className="entry-count-plain">
-          {days} days, {hours} hrs, {minutes} mins, {seconds} secs to go
+          {days} {t('entryGate.countdownLabel').split(',')[0]}, {hours} {t('entryGate.countdownLabel').split(',')[1]}, {minutes} {t('entryGate.countdownLabel').split(',')[2]}, {seconds} {t('entryGate.countdownLabel').split(',')[3]}
         </div>
 
         <p className="entry-body">
-          Please enter the guest code from your invitation to access our wedding details.
+          {t('entryGate.prompt')}
         </p>
 
         <form className="entry-form" onSubmit={handleSubmit}>
           <input
             type="text"
-            placeholder="Your code..."
+            placeholder={t('entryGate.placeholder')}
             value={code}
             onChange={(e) => setCode(e.target.value)}
             required
             disabled={loading}
           />
           <button className="entry-btn" disabled={loading}>
-            {loading ? "Checking..." : "View wedding details"}
+            {loading ? t('entryGate.checking') : t('entryGate.submitBtn')}
           </button>
           {error && <p className="entry-error">{error}</p>}
         </form>

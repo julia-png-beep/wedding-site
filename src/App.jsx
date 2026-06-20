@@ -1,6 +1,7 @@
 // src/App.jsx
 import React from "react";
 import { HashRouter, Routes, Route } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 import Nav from "./components/Nav.jsx";
 
@@ -34,6 +35,7 @@ const heroImages = [
 export default function App() {
   const [index, setIndex] = React.useState(0);
   const [unlocked, setUnlocked] = React.useState(false);
+  const { t } = useTranslation();
 
   // Slideshow
   React.useEffect(() => {
@@ -58,11 +60,18 @@ React.useEffect(() => {
 
       const code = localStorage.getItem("weddingAccessCode");
       if (code) {
+        console.log("Sending validation request for code:", code);
         fetch(WEB_APP_URL, {
           method: "POST",
           headers: { "Content-Type": "text/plain;charset=utf-8" },
           body: JSON.stringify({ action: "validate", code }),
-        }).catch(() => {});
+        })
+          .then(res => {
+            console.log("Validation response status:", res.status);
+            return res.json();
+          })
+          .then(data => console.log("Validation response data:", data))
+          .catch(err => console.error("Validation error:", err));
       }
     } else {
       localStorage.removeItem("weddingAccessGranted");
@@ -109,10 +118,9 @@ React.useEffect(() => {
         <div className="hero-overlay" />
         {unlocked && (
           <div className="hero-inner">
-            <h1>Gerard &amp; Julia</h1>
+            <h1 dangerouslySetInnerHTML={{ __html: t('hero.title') }} />
             <p>
-              24 October 2026 <span className="heart">♥</span> Kangaroo
-              Valley, NSW
+              {t('hero.date')} <span className="heart">♥</span> {t('hero.location')}
             </p>
           </div>
         )}
@@ -161,9 +169,7 @@ React.useEffect(() => {
       </main>
 
       {unlocked && (
-        <footer className="footer">
-          Made with love in the bush · © Gerard &amp; Julia 2026
-        </footer>
+        <footer className="footer" dangerouslySetInnerHTML={{ __html: t('footer.credit') }} />
       )}
     </HashRouter>
   );
