@@ -70,8 +70,7 @@ export default function FAQ() {
       q: "🚗 Is there parking at the venue?",
       a: (
         <p>
-          Limited parking is available on site. We ask that you make use of the bus if possible. If this isn't possible, please let us know
-          in your RSVP so we can allocate a spot. Car-pooling is encouraged.
+          Parking is very limited. We ask that you make use of the bus if possible. If this isn't possible, please let us know so we can allocate a spot. Car-pooling is encouraged.
         </p>
       ),
     },
