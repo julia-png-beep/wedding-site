@@ -25,10 +25,11 @@ export default function ShuttleBus() {
         <h2 className="title">Shuttle Bus Information</h2>
 
         <p>
-          We'll have a shuttle bus running to and from Wildwood for anyone who'd
-          rather not drive. There is some parking on-site if you prefer to drive
-          yourself — just let us know in your RSVP if you'd like a spot on the
-          bus. Please check the map below for the route and pick-up locations.
+          We strongly encourage everyone to make use of the shuttle bus — it's
+          the easiest way to get to and from Wildwood, and parking at the venue
+          is quite limited. If you do need to drive, please let us know in your
+          RSVP so we can plan ahead. Check the map below for the route and
+          pick-up locations.
         </p>
 
         <p>

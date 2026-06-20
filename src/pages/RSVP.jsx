@@ -56,7 +56,7 @@ export default function RSVP() {
     try {
       const res = await fetch(WEB_APP_URL, {
         method: "POST",
-        headers: { "Content-Type": "text/plain;charset=utf-8" },
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ action: "validate", code: codeToUse }),
       });
 
@@ -203,6 +203,7 @@ export default function RSVP() {
         action: "submit",
         householdId: household.householdId,
         code: code.trim(),
+        isUpdate: !!household.hasResponded,
         updates,
         email1: (email1 || "").trim(),
         email2: (email2 || "").trim(),
@@ -219,7 +220,7 @@ export default function RSVP() {
 
       const res = await fetch(WEB_APP_URL, {
         method: "POST",
-        headers: { "Content-Type": "text/plain;charset=utf-8" },
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),
       });
 
@@ -432,7 +433,7 @@ export default function RSVP() {
 
                 <div className="rsvp-tile">
                   <h4>
-  We’ll be wrapping up the weekend with a relaxed farewell picnic on Sunday morning (location tbd) — would you like to join us?
+  We’ll be wrapping up the weekend with a relaxed farewell brunch on Sunday morning — would you like to join us?
 </h4>
 
                   <div className="choice-row two-col">
@@ -533,6 +534,7 @@ export default function RSVP() {
                     placeholder="Email 1"
                     value={email1}
                     onChange={(e) => setEmail1(e.target.value)}
+                    required
                   />
 
                   <textarea
