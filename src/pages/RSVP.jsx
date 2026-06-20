@@ -22,7 +22,7 @@ export default function RSVP() {
   const [email2, setEmail2] = React.useState("");
   const [friday, setFriday] = React.useState("No");
   const [sunday, setSunday] = React.useState("No");
-  const [transport, setTransport] = React.useState("Drive");
+  const [transport, setTransport] = React.useState("Shuttle");
   const [stayWhere, setStayWhere] = React.useState("");
   const [notes, setNotes] = React.useState("");
 
@@ -462,41 +462,30 @@ export default function RSVP() {
                 </div>
 
                 <div className="rsvp-tile">
-                  <h4>How will you be getting to the venue?</h4>
+                  <h4>Getting to the venue</h4>
 
-                  <div className="choice-row two-col">
-                    <label className="choice">
-                      <input
-                        type="radio"
-                        checked={transport === "Shuttle"}
-                        onChange={() => setTransport("Shuttle")}
-                      />
-                      <span>
-                        Shuttle bus.
-                      </span>
-                    </label>
+                  <p style={{ margin: "0 0 10px" }}>
+                    We'll have a shuttle bus running for all guests to and from
+                    Wildwood, as there is very limited parking on site. Please
+                    let us know where you're staying so we can plan the route
+                    and pick-up times.
+                  </p>
 
-                    <label className="choice">
-                      <input
-                        type="radio"
-                        checked={transport === "Drive"}
-                        onChange={() => setTransport("Drive")}
-                      />
-                      <span>
-                        Driving, please save a parking spot.
-                      </span>
-                    </label>
-                  </div>
+                  <input
+                    placeholder="Your accommodation — helps us plan pick-up stops"
+                    value={stayWhere}
+                    onChange={(e) => setStayWhere(e.target.value)}
+                  />
 
-                  {transport === "Shuttle" && (
-                    <input
-                      style={{ marginTop: 8 }}
-                      placeholder="Where will you be staying?"
-                      value={stayWhere}
-                      onChange={(e) => setStayWhere(e.target.value)}
-                      required
-                    />
-                  )}
+                  <p style={{ margin: "12px 0 4px" }}>
+                    If you're unable to use the shuttle bus and need to drive,
+                    please get in touch with us directly to arrange a parking
+                    spot:
+                  </p>
+                  <p style={{ margin: 0 }}>
+                    <strong>Gerard</strong> 0405 320 758<br />
+                    <strong>Julia</strong> 0411 821 932 · julia.grosshagauer@gmail.com
+                  </p>
                 </div>
 
                 {household.anyPlusAllowed && (

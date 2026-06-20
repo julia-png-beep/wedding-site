@@ -33,9 +33,10 @@ export default function ShuttleBus() {
         </p>
 
         <p>
-          The stops shown are some of the most common spots — use them as a
-          guide, and just let us know where you're staying in your RSVP so we
-          can arrange a route that works for everyone.
+          If you need to drive rather than take the shuttle, please get in touch
+          with us directly — parking at the venue is very limited and we'll need
+          to plan ahead. You can reach Gerard on 0405 320 758 or Julia on 0411
+          821 932 / julia.grosshagauer@gmail.com.
         </p>
       </section>
 
