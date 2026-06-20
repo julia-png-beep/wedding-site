@@ -1,0 +1,141 @@
+{
+  "nav": {
+    "welcome": "Welcome",
+    "theWeekend": "The Weekend",
+    "planYourTrip": "Plan Your Trip",
+    "faq": "Q&A",
+    "rsvp": "RSVP",
+    "moments": "Moments",
+    "ourJourney": "Our Journey",
+    "gallery": "Gallery"
+  },
+  "common": {
+    "back": "← Back",
+    "language": "Language",
+    "english": "English",
+    "german": "Deutsch"
+  },
+  "hero": {
+    "title": "Gerard &amp; Julia",
+    "date": "24 October 2026",
+    "location": "Kangaroo Valley, NSW"
+  },
+  "home": {
+    "welcome": "Welcome",
+    "intro": "Our journey has included snowstorms, soggy tents, long-haul trips and getting lost in the wilderness more times than we'd like to admit.<br /><br />Join us in the bush for vows, food, music and a firepit with our favourite people.<br /><br />Don't worry, no hiking boots needed.",
+    "theWeekend": "The Weekend",
+    "weekendGuide": "Your guide to the celebrations · Select a day to view the details.",
+    "saturday": "Saturday",
+    "saturdayDesc": "Ceremony, reception &amp; dancing under the gums",
+    "sunday": "Sunday",
+    "sundayDesc": "Recovery brunch — location TBC",
+    "planYourTrip": "Plan Your Trip",
+    "gettingThere": "Getting There",
+    "gettingThereDesc": "Maps, travel tips &amp; scenic routes",
+    "accommodation": "Accommodation",
+    "accommodationDesc": "Our favourite stays in the Valley",
+    "shuttleBus": "Shuttle Bus",
+    "shuttleBusDesc": "Pickup points &amp; timings for Saturday",
+    "thingsToDo": "Things to Do",
+    "thingsToDoDesc": "Walks, waterfalls, wineries &amp; great coffee",
+    "essentials": "Essentials",
+    "qAndA": "Q&amp;A",
+    "qAndADesc": "Answers to all those pre-wedding questions.",
+    "rsvp": "RSVP",
+    "rsvpDesc": "Please let us know by 1 September 2026",
+    "gallery": "Gallery",
+    "galleryDesc": "Photos after the wedding",
+    "moments": "Moments",
+    "momentsDesc": "A little collage of ten years of adventures."
+  },
+  "entryGate": {
+    "title": "Gerard &amp; Julia's",
+    "subtitle": "Bush Wedding",
+    "countdownLabel": "days, hrs, mins, secs to go",
+    "prompt": "Please enter the guest code from your invitation to access our wedding details.",
+    "placeholder": "Your code...",
+    "submitBtn": "View wedding details",
+    "checking": "Checking...",
+    "invalidCode": "Invalid guest code. Please check your invitation.",
+    "technicalError": "Technical glitch. Please try again in a moment."
+  },
+  "faq": {
+    "title": "Q&amp;A",
+    "intro": "We're so excited to celebrate with you! Here's everything you might want to know before the big day.",
+    "questions": {
+      "rsvpQuestion": "📅 How do I RSVP and by when?",
+      "rsvpAnswer": "Please RSVP by 1 September 2026 so we can finalise numbers and make sure everything is ready to celebrate with you. You can RSVP via the form on this website.",
+      "arrivalQuestion": "⏰ When should we arrive for the ceremony?",
+      "arrivalAnswer": "The ceremony will begin at 3:00pm. Please arrive by 2:30pm so you have time to wander down to the valley lookout platform, find a seat and settle in before we begin.",
+      "dateQuestion": "👫 Can I bring a date?",
+      "dateAnswer": "We're keeping things intimate, so only those named on your invitation are invited. We hope you understand and can't wait to celebrate together.",
+      "childrenQuestion": "🧒 Are children welcome?",
+      "childrenAnswer": "Children named on your invitation are welcome. Wildwood is surrounded by bushland and unfenced cliffs, so little ones will need to be supervised at all times. If you prefer a night out, South Coast Nannies offer local babysitting services.",
+      "indoorOutdoorQuestion": "🌿 Is the wedding indoors or outdoors?",
+      "indoorOutdoorAnswer": "The ceremony and cocktail hour will be outdoors, with the reception under cover and wet-weather options ready just in case. If conditions permit, we'll light a firepit in the evening.",
+      "parkingQuestion": "🚗 Is there parking at the venue?",
+      "parkingAnswer": "Limited parking is available on site. We ask that you make use of the bus if possible. If this isn't possible, please let us know in your RSVP so we can allocate a spot. Car-pooling is encouraged.",
+      "shuttleQuestion": "🚌 Where will the Shuttle bus be picking me up?",
+      "shuttleAnswer": "We'll share pickup times and exact locations closer to the day. If you're planning to use the shuttle bus, we recommend booking accommodation near one of the common pickup locations.",
+      "weatherQuestion": "🌤️ What's the weather like?",
+      "weatherAnswer": "Spring in Kangaroo Valley is usually mild (10–24°C). Evenings can be cool so bring a jacket for after dark.",
+      "receptionQuestion": "📶 Will there be phone reception?",
+      "receptionAnswer": "Mobile reception at Wildwood is limited and a bit patchy. Think of it as a good excuse to switch off and enjoy the bush!",
+      "dressQuestion": "👗👔 What should I wear?",
+      "dressAnswer": "We're going for cocktail attire, polished but relaxed. Think jacket and trousers, and dresses of any length. The venue is set in natural bushland with some uneven ground so stilettos might not be your best friend. And while we love a statement outfit, white is best left for the bride for this one day.",
+      "dietaryQuestion": "🥗 Do you cater for dietary requirements?",
+      "dietaryAnswer": "Of course! Just include any dietary requirements in your RSVP and our amazing caterer, Jo, and her team will look after you.",
+      "photoQuestion": "📷 Can I take photos or videos during the ceremony?",
+      "photoAnswer": "We're having an unplugged ceremony, so please keep phones and cameras tucked away and be fully present with us. Once the party starts, feel free to snap away at the reception!",
+      "giftQuestion": "🎁 Gifts?",
+      "giftAnswer": "Your presence is the gift we value most. If you'd like to help us create memories on our honeymoon, a wishing well will be available.",
+      "moreQuestionsQuestion": "❓ More questions - who should I call?",
+      "moreQuestionsAnswer": "Feel free to contact us if you have any further questions.",
+      "julia": "Julia:",
+      "gerard": "Gerard:",
+      "moreQuestionsClose": "We're happy to help with anything from travel tips to outfit dilemmas."
+    }
+  },
+  "weekend": {
+    "saturday": {
+      "title": "Saturday · The Main Event",
+      "venue": "Wildwood, Kangaroo Valley",
+      "time": "2:30 – 11:00 pm",
+      "description": "We can't wait to celebrate with you at Wildwood. Arrive at 2:30 pm for a welcome drink before wandering down to the Valley Lookout for our 3 pm ceremony among the trees. After we say \"I do,\" join us for cocktails, canapés, and golden-hour views on the Picnic Lawn. Dinner, laughter, and dancing will follow from 6 pm under the gum trees.",
+      "mapAlt": "Wildwood property map",
+      "clickToEnlarge": "Click to enlarge"
+    },
+    "sunday": {
+      "title": "Sunday · Recovery Brunch",
+      "description": "Join us for a relaxed brunch to wind down from the celebrations."
+    },
+    "schedule": {
+      "title": "The Weekend Schedule"
+    }
+  },
+  "stay": {
+    "title": "Where to Stay",
+    "intro": "There are plenty of places to stay in and around Kangaroo Valley — from cosy cottages to holiday rentals. If you're planning to use the shuttle bus, consider booking accommodation along the route for an easier trip to and from Wildwood. You can check the Bus Map for details.",
+    "recommendations": "Our Top Recommendations",
+    "wildes": "Wildes Boutique Hotel — a small boutique hotel in the heart of town",
+    "getaways": "Kangaroo Valley Getaways — Airbnb-style accommodation via a local agent",
+    "escapes": "Kangaroo Valley Escapes — curated boutique holiday homes",
+    "golf": "Kangaroo Valley Golf &amp; Country Retreat — One to three bedroom cottages set within Kangaroo Valley's golf course",
+    "wildwood": "Places to stay recommended by Wildwood — a list of local popular places to stay",
+    "note": "Accommodation in Kangaroo Valley is popular and can book out quickly, especially on weekends. We recommend securing your stay early."
+  },
+  "gettingThere": {
+    "title": "Getting There",
+    "location": "📍 Wildwood, Kangaroo Valley",
+    "distance": "🚗 ≈ 2 hrs from Sydney · ≈ 2.5 hrs from Canberra",
+    "intro": "Wildwood is tucked away in the lush hills of Kangaroo Valley — the drive is winding but beautiful, so allow a little extra time to take it slow and enjoy the scenery.",
+    "airTitle": "✈️ By Air + Car",
+    "airDesc": "The nearest airports are Sydney and Canberra. From either city, the easiest way to reach Kangaroo Valley is by car. Parking at Wildwood itself is limited, so we suggest taking advantage of the bus service. If your accommodation isn't on the bus route please reach out and we'll sort something out.",
+    "publicTitle": "🚌 Public Transport",
+    "publicDesc": "Public transport to Kangaroo Valley is very limited, so we'd recommend driving or arranging a lift if you can.",
+    "mapAlt": "Wildwood Kangaroo Valley Map"
+  },
+  "footer": {
+    "credit": "Made with love in the bush · © Gerard &amp; Julia 2026"
+  }
+}

@@ -1,0 +1,141 @@
+{
+  "nav": {
+    "welcome": "Willkommen",
+    "theWeekend": "Das Wochenende",
+    "planYourTrip": "Planen Sie Ihre Reise",
+    "faq": "Häufig gestellte Fragen",
+    "rsvp": "Zusage",
+    "moments": "Momente",
+    "ourJourney": "Unsere Geschichte",
+    "gallery": "Galerie"
+  },
+  "common": {
+    "back": "← Zurück",
+    "language": "Sprache",
+    "english": "English",
+    "german": "Deutsch"
+  },
+  "hero": {
+    "title": "Gerard &amp; Julia",
+    "date": "24. Oktober 2026",
+    "location": "Kangaroo Valley, NSW"
+  },
+  "home": {
+    "welcome": "Willkommen",
+    "intro": "Unsere Reise hat Schneestürme, durchnässte Zelte, Fernreisen und viele verlorene Momente in der Wildnis beinhaltet.<br /><br />Begleiten Sie uns in der Natur zu Gelübden, guter Küche, Musik und einem Lagerfeuer mit unseren liebsten Menschen.<br /><br />Keine Sorge, Sie brauchen keine Wanderschuhe.",
+    "theWeekend": "Das Wochenende",
+    "weekendGuide": "Ihr Guide zu den Feierlichkeiten · Wählen Sie einen Tag, um Details zu sehen.",
+    "saturday": "Samstag",
+    "saturdayDesc": "Zeremonie, Empfang &amp; Tanz unter den Eukalyptusbäumen",
+    "sunday": "Sonntag",
+    "sundayDesc": "Erholung-Brunch — Ort wird noch mitgeteilt",
+    "planYourTrip": "Planen Sie Ihre Reise",
+    "gettingThere": "Anreise",
+    "gettingThereDesc": "Karten, Reisetipps &amp; malerische Routen",
+    "accommodation": "Unterkunft",
+    "accommodationDesc": "Unsere liebsten Unterkünfte im Valley",
+    "shuttleBus": "Shuttlebus",
+    "shuttleBusDesc": "Abholpunkte &amp; Zeitplan für Samstag",
+    "thingsToDo": "Aktivitäten",
+    "thingsToDoDesc": "Wanderungen, Wasserfälle, Weingüter &amp; guter Kaffee",
+    "essentials": "Das Wichtigste",
+    "qAndA": "Häufig gestellte Fragen",
+    "qAndADesc": "Antworten auf alle Fragen vor der Hochzeit.",
+    "rsvp": "Zusage",
+    "rsvpDesc": "Bitte bestätigen Sie bis zum 1. September 2026",
+    "gallery": "Galerie",
+    "galleryDesc": "Fotos nach der Hochzeit",
+    "moments": "Momente",
+    "momentsDesc": "Eine kleine Collage von zehn Jahren Abenteuer."
+  },
+  "entryGate": {
+    "title": "Gerard &amp; Julia's",
+    "subtitle": "Hochzeit in der Natur",
+    "countdownLabel": "Tage, Stunden, Minuten, Sekunden verbleibend",
+    "prompt": "Bitte geben Sie den Gästecode von Ihrer Einladung ein, um auf unsere Hochzeitsdetails zuzugreifen.",
+    "placeholder": "Ihr Code...",
+    "submitBtn": "Hochzeitsdetails anzeigen",
+    "checking": "Wird überprüft...",
+    "invalidCode": "Ungültiger Gästecode. Bitte überprüfen Sie Ihre Einladung.",
+    "technicalError": "Technisches Problem. Bitte versuchen Sie es später erneut."
+  },
+  "faq": {
+    "title": "Häufig gestellte Fragen",
+    "intro": "Wir freuen uns riesig, mit Ihnen zu feiern! Hier ist alles, was Sie vor dem großen Tag wissen möchten.",
+    "questions": {
+      "rsvpQuestion": "📅 Wie melde ich mich an und bis wann?",
+      "rsvpAnswer": "Bitte melden Sie sich bis zum 1. September 2026 an, damit wir die Zahlen finalisieren und alles für die Feier vorbereiten können. Sie können sich über das Formular auf dieser Website anmelden.",
+      "arrivalQuestion": "⏰ Wann sollten wir zur Zeremonie ankommen?",
+      "arrivalAnswer": "Die Zeremonie beginnt um 15:00 Uhr. Bitte kommen Sie um 14:30 Uhr an, damit Sie Zeit haben, zum Valley Lookout zu gehen, einen Platz zu finden und sich vor Beginn einzurichten.",
+      "dateQuestion": "👫 Kann ich einen Begleiter mitbringen?",
+      "dateAnswer": "Wir halten es intim, daher sind nur die auf Ihrer Einladung genannten Personen eingeladen. Wir hoffen auf Ihr Verständnis und freuen uns, mit Ihnen zu feiern.",
+      "childrenQuestion": "🧒 Sind Kinder willkommen?",
+      "childrenAnswer": "Kinder, die auf Ihrer Einladung genannt sind, sind willkommen. Wildwood ist von Buschland und unbefestigten Klippen umgeben, daher müssen kleine Kinder ständig beaufsichtigt werden. Wenn Sie einen Babysitter bevorzugen, bietet South Coast Nannies lokale Babysitting-Services an.",
+      "indoorOutdoorQuestion": "🌿 Findet die Hochzeit drinnen oder draußen statt?",
+      "indoorOutdoorAnswer": "Die Zeremonie und der Cocktailempfang finden draußen statt, der Empfang ist überdacht und bei Bedarf haben wir Schlechtwetteroptionen bereit. Falls es das Wetter erlaubt, zünden wir am Abend ein Lagerfeuer an.",
+      "parkingQuestion": "🚗 Gibt es Parkmöglichkeiten am Veranstaltungsort?",
+      "parkingAnswer": "Auf dem Gelände gibt es begrenzte Parkmöglichkeiten. Wir bitten Sie, den Bus zu nutzen, wenn möglich. Wenn das nicht möglich ist, geben Sie bitte in Ihrer Zusage Bescheid, damit wir einen Platz reservieren können. Fahrgemeinschaften sind willkommen.",
+      "shuttleQuestion": "🚌 Wo wird der Shuttlebus mich abholen?",
+      "shuttleAnswer": "Wir teilen die Abholzeiten und genauen Orte näher zum Termin mit. Wenn Sie den Shuttlebus nutzen möchten, empfehlen wir Ihnen, eine Unterkunft in der Nähe eines der häufigen Abholpunkte zu buchen.",
+      "weatherQuestion": "🌤️ Wie ist das Wetter?",
+      "weatherAnswer": "Der Frühling in Kangaroo Valley ist normalerweise mild (10–24 °C). Die Abende können kühl sein, also bringen Sie eine Jacke für die Dunkelheit mit.",
+      "receptionQuestion": "📶 Gibt es Handyempfang?",
+      "receptionAnswer": "Der Handyempfang auf Wildwood ist begrenzt und etwas flüchtig. Sehen Sie es als guten Grund an, abzuschalten und die Natur zu genießen!",
+      "dressQuestion": "👗👔 Was sollte ich anziehen?",
+      "dressAnswer": "Wir gehen auf Cocktailgarderobe, gepflegt aber entspannt. Denken Sie an Jacke und Hose, und Kleider jeder Länge. Der Veranstaltungsort liegt in natürlicher Buschlandschaft mit unebenem Gelände, daher sind Stilettos vielleicht nicht die beste Wahl. Und während wir ein auffälliges Outfit lieben, sollte Weiß für diesen einen Tag der Braut vorbehalten sein.",
+      "dietaryQuestion": "🥗 Werden Diätwünsche berücksichtigt?",
+      "dietaryAnswer": "Natürlich! Geben Sie einfach Ihre Diätwünsche in Ihrer Zusage an und unser großartiges Catering-Team von Jo wird sich um Sie kümmern.",
+      "photoQuestion": "📷 Darf ich während der Zeremonie Fotos oder Videos machen?",
+      "photoAnswer": "Wir haben eine unplugged Zeremonie, daher bitte Handy und Kameras verstecken und völlig präsent sein. Sobald die Party beginnt, können Sie gerne beim Empfang fotografieren!",
+      "giftQuestion": "🎁 Geschenke?",
+      "giftAnswer": "Ihre Gegenwart ist das Geschenk, das wir am meisten schätzen. Wenn Sie uns bei der Schaffung von Erinnerungen auf unserer Hochzeitsreise helfen möchten, wird es einen Wunschbrunnen geben.",
+      "moreQuestionsQuestion": "❓ Weitere Fragen - wen sollte ich anrufen?",
+      "moreQuestionsAnswer": "Zögern Sie nicht, uns zu kontaktieren, wenn Sie weitere Fragen haben.",
+      "julia": "Julia:",
+      "gerard": "Gerard:",
+      "moreQuestionsClose": "Wir helfen gerne bei allem, von Reisetipps bis zu Outfit-Dilemmata."
+    }
+  },
+  "weekend": {
+    "saturday": {
+      "title": "Samstag · Das Hauptereignis",
+      "venue": "Wildwood, Kangaroo Valley",
+      "time": "14:30 – 23:00 Uhr",
+      "description": "Wir freuen uns riesig, mit Ihnen auf Wildwood zu feiern. Kommen Sie um 14:30 Uhr an, um einen Willkommensdrink zu genießen, bevor Sie zum Valley Lookout gehen für unsere Zeremonie um 15:00 Uhr unter den Bäumen. Nach dem \"Ja, ich will\" treffen Sie uns zu Cocktails, Canapés und goldener Stunde auf dem Picnic Lawn. Abendessen, Lachen und Tanz folgen ab 18:00 Uhr unter den Eukalyptusbäumen.",
+      "mapAlt": "Wildwood Grundstückskarte",
+      "clickToEnlarge": "Klicken zum Vergrößern"
+    },
+    "sunday": {
+      "title": "Sonntag · Erholung-Brunch",
+      "description": "Treffen Sie uns zu einem entspannten Brunch, um sich von den Feierlichkeiten zu erholen."
+    },
+    "schedule": {
+      "title": "Wochenend-Zeitplan"
+    }
+  },
+  "stay": {
+    "title": "Wo man übernachten kann",
+    "intro": "Es gibt viele Orte zum Übernachten in und um Kangaroo Valley — von gemütlichen Cottages bis zu Ferienunterkünften. Wenn Sie den Shuttlebus nutzen möchten, buchen Sie Unterkunft in der Nähe der Route für eine einfachere Fahrt zu und von Wildwood. Sie können die Bushkarte für Details einsehen.",
+    "recommendations": "Unsere Top-Empfehlungen",
+    "wildes": "Wildes Boutique Hotel — ein kleines Boutique-Hotel im Herzen der Stadt",
+    "getaways": "Kangaroo Valley Getaways — Airbnb-ähnliche Unterkünfte über einen lokalen Agenten",
+    "escapes": "Kangaroo Valley Escapes — kuratierte Boutique-Ferienhäuser",
+    "golf": "Kangaroo Valley Golf &amp; Country Retreat — Ein bis drei Schlafzimmer Cottages im Golfplatz von Kangaroo Valley",
+    "wildwood": "Von Wildwood empfohlene Übernachtungsorte — eine Liste beliebter lokaler Plätze zum Übernachten",
+    "note": "Unterkünfte in Kangaroo Valley sind beliebt und können schnell ausgebucht sein, besonders an Wochenenden. Wir empfehlen Ihnen, Ihren Aufenthalt frühzeitig zu sichern."
+  },
+  "gettingThere": {
+    "title": "Anreise",
+    "location": "📍 Wildwood, Kangaroo Valley",
+    "distance": "🚗 ≈ 2 Stunden von Sydney · ≈ 2,5 Stunden von Canberra",
+    "intro": "Wildwood liegt versteckt in den üppigen Hügeln des Kangaroo Valley — die Fahrt ist kurvenreich aber wunderschön, also nehmen Sie sich Zeit und genießen Sie die Landschaft.",
+    "airTitle": "✈️ Mit dem Flugzeug + Auto",
+    "airDesc": "Die nächsten Flughäfen sind Sydney und Canberra. Von beiden Städten ist die beste Möglichkeit, Kangaroo Valley zu erreichen, mit dem Auto. Das Parken auf Wildwood selbst ist begrenzt, daher empfehlen wir Ihnen, den Bussservice zu nutzen. Wenn Ihre Unterkunft nicht auf der Busroute liegt, wenden Sie sich bitte an uns.",
+    "publicTitle": "🚌 Öffentliche Verkehrsmittel",
+    "publicDesc": "Öffentliche Verkehrsmittel nach Kangaroo Valley sind sehr begrenzt, daher empfehlen wir Ihnen zu fahren oder eine Fahrt zu arrangieren.",
+    "mapAlt": "Wildwood Kangaroo Valley Karte"
+  },
+  "footer": {
+    "credit": "Mit Liebe in der Natur gemacht · © Gerard &amp; Julia 2026"
+  }
+}
