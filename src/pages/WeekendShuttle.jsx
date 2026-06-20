@@ -25,18 +25,16 @@ export default function ShuttleBus() {
         <h2 className="title">Shuttle Bus Information</h2>
 
         <p>
-          We strongly encourage everyone to make use of the shuttle bus — it's
-          the easiest way to get to and from Wildwood, and parking at the venue
-          is quite limited. If you do need to drive, please let us know in your
-          RSVP so we can plan ahead. Check the map below for the route and
-          pick-up locations.
+          We strongly encourage everyone to make use of the shuttle bus, it's
+          the easiest way to get to and from Wildwood. Check the map below for
+          the route and pick-up locations.
         </p>
 
         <p>
           If you need to drive rather than take the shuttle, please get in touch
-          with us directly — parking at the venue is very limited and we'll need
-          to plan ahead. You can reach Gerard on 0405 320 758 or Julia on 0411
-          821 932 / julia.grosshagauer@gmail.com.
+          with us directly as parking at the venue is very limited. You can
+          reach Gerard on 0405 320 758 or Julia on 0411 821 932 /
+          julia.grosshagauer@gmail.com.
         </p>
       </section>
 
