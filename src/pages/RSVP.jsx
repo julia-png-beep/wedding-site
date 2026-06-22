@@ -72,7 +72,7 @@ export default function RSVP() {
       const hasResponded = members.some((m) => m.rsvp);
 
       members.forEach((m) => {
-        a[m.guestId] = m.rsvp || (m.invited ? "Yes" : "No");
+        a[m.guestId] = hasResponded ? (m.rsvp || "") : "";
         diets[m.guestId] = {
           needed: m.dietary ? "Yes" : "No",
           details: m.dietary || "",
@@ -83,8 +83,8 @@ export default function RSVP() {
         hh.email1 || members.find((m) => m.email)?.email || "";
       setEmail1(firstEmail);
       setEmail2(hh.email2 || "");
-      setFriday(hh.friday || "No");
-      setSunday(hh.sunday || "No");
+      setFriday(hasResponded ? (hh.friday || "No") : "");
+      setSunday(hasResponded ? (hh.sunday || "No") : "");
       setNotes(hh.notes || "");
 
       const transportVal = String(hh.transport || "");
@@ -92,7 +92,7 @@ export default function RSVP() {
         setTransport("Shuttle");
         const parts = transportVal.split(" - ");
         setStayWhere(parts.length > 1 ? parts.slice(1).join(" - ").trim() : "");
-      } else {
+      } else if (transportVal) {
         setTransport("Drive");
       }
 
@@ -320,7 +320,7 @@ export default function RSVP() {
 
             <div className="guest-grid">
               {household.members.map((m) => {
-                const att = attendance[m.guestId] || "No";
+                const att = attendance[m.guestId] ?? "";
                 const diet = dietByGuest[m.guestId] || {
                   needed: "No",
                   details: "",
@@ -475,6 +475,7 @@ export default function RSVP() {
                     placeholder="Your accommodation — helps us plan pick-up stops"
                     value={stayWhere}
                     onChange={(e) => setStayWhere(e.target.value)}
+                    required
                   />
 
                   <p style={{ margin: "12px 0 4px" }}>
