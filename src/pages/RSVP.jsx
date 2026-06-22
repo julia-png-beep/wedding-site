@@ -515,27 +515,29 @@ export default function RSVP() {
                   </div>
                 )}
 
-                <div className="rsvp-tile">
-                  <h4>For important updates and details please provide your email address
-              </h4>
-
-                  <input
-                    type="email"
-                    placeholder="Email 1"
-                    value={email1}
-                    onChange={(e) => setEmail1(e.target.value)}
-                    required
-                  />
-
-                  <textarea
-                    style={{ marginTop: 8 }}
-                    rows={3}
-                    placeholder="Any other notes?"
-                    value={notes}
-                    onChange={(e) => setNotes(e.target.value)}
-                  />
-                </div>
               </>
+            )}
+
+            {anyAttending && (
+              <div className="rsvp-tile">
+                <h4>For important updates and details please provide your email address</h4>
+
+                <input
+                  type="email"
+                  placeholder="Email address"
+                  value={email1}
+                  onChange={(e) => setEmail1(e.target.value)}
+                  required
+                />
+
+                <textarea
+                  style={{ marginTop: 8 }}
+                  rows={3}
+                  placeholder="Any other notes?"
+                  value={notes}
+                  onChange={(e) => setNotes(e.target.value)}
+                />
+              </div>
             )}
 
             <button
