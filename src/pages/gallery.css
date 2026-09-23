@@ -1,0 +1,50 @@
+.gallery-page { max-width: 1040px; }
+.gallery-page--qr { padding-top: 0; }
+.gallery-heading { max-width: 720px; margin: 0 auto 28px; text-align: center; }
+.gallery-heading .title { margin-top: 6px; }
+.gallery-kicker { margin: 0; color: var(--clay); font-size: .82rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; }
+.upload-card { max-width: 680px; margin: 0 auto 56px; padding: clamp(20px, 4vw, 36px); background: rgba(255,255,255,.9); border: 1px solid rgba(65,99,72,.16); border-radius: 18px; box-shadow: 0 14px 40px rgb(65 45 35 / .1); }
+.upload-card > label:not(.file-picker) { display: block; margin-bottom: 7px; color: var(--color-heading); font-weight: 600; }
+.upload-card input[type="text"] { width: 100%; min-height: 48px; margin-bottom: 20px; padding: 11px 14px; color: var(--text); background: #fff; border: 1px solid #d8d1ca; border-radius: 10px; font: inherit; }
+.upload-card input[type="text"]:focus { border-color: var(--clay); box-shadow: var(--ring); outline: none; }
+.file-picker { display: grid; place-items: center; min-height: 170px; padding: 22px; text-align: center; color: var(--leaf); background: color-mix(in oklab, var(--cream) 82%, white 18%); border: 2px dashed color-mix(in oklab, var(--sage) 70%, white 30%); border-radius: 14px; cursor: pointer; transition: border-color .2s ease, background .2s ease, transform .15s ease; }
+.file-picker:hover { border-color: var(--clay); background: #fffaf6; transform: translateY(-1px); }
+.file-picker__icon { display: grid; place-items: center; width: 44px; height: 44px; margin-bottom: 4px; color: #fff; background: var(--clay); border-radius: 50%; font-size: 1.65rem; line-height: 1; }
+.file-picker strong { font-family: "Playfair Display", serif; font-size: 1.2rem; }
+.file-picker span:last-child { color: var(--muted); font-size: .9rem; }
+.visually-hidden { position: absolute !important; width: 1px !important; height: 1px !important; padding: 0 !important; margin: -1px !important; overflow: hidden !important; clip: rect(0,0,0,0) !important; white-space: nowrap !important; border: 0 !important; }
+.upload-selection, .shared-gallery__heading { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+.upload-selection { margin: 14px 2px 0; color: var(--muted); font-size: .92rem; }
+.upload-selection strong { color: var(--leaf); }
+.upload-button { width: 100%; margin-top: 18px; border: 0; cursor: pointer; font: inherit; font-weight: 700; }
+.upload-button:disabled { cursor: not-allowed; opacity: .5; }
+.upload-progress { display: grid; gap: 7px; margin-top: 16px; color: var(--muted); font-size: .88rem; }
+.upload-progress__track { height: 9px; overflow: hidden; background: #e8e1da; border-radius: 999px; }
+.upload-progress__track span { display: block; height: 100%; background: linear-gradient(90deg,var(--leaf),var(--sage)); border-radius: inherit; transition: width .2s ease; }
+.upload-message { margin: 14px 0 0; padding: 10px 12px; border-radius: 9px; font-size: .94rem; }
+.upload-message--success { color: #25462f; background: #e5f1e8; }
+.upload-message--error { color: #7b2f2a; background: #f8e8e5; }
+.shared-gallery { margin-top: 28px; }
+.shared-gallery__heading { margin-bottom: 16px; }
+.shared-gallery__heading h3 { margin: 0; font-family: "Playfair Display", serif; font-size: clamp(1.55rem,3vw,2.1rem); color: var(--color-heading); }
+.shared-gallery__heading span { color: var(--muted); font-size: .9rem; }
+.gallery-grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 14px; }
+.gallery-card { position: relative; display: block; aspect-ratio: 1; overflow: hidden; background: #e7e0d9; border-radius: 14px; box-shadow: 0 8px 24px rgb(50 35 28 / .1); }
+.gallery-card__media { position: absolute; inset: 0; display: block; color: inherit; }
+.gallery-card img { width: 100%; height: 100%; object-fit: cover; transition: transform .3s ease; }
+.gallery-card:hover img { transform: scale(1.035); }
+.gallery-card__fallback { display: grid; place-items: center; width: 100%; height: 100%; color: var(--clay); font-size: 2rem; }
+.gallery-card__video, .gallery-card__credit { position: absolute; left: 9px; color: #fff; background: rgb(35 45 37 / .78); border-radius: 999px; backdrop-filter: blur(4px); }
+.gallery-card__video { top: 9px; padding: 5px 9px; font-size: .75rem; font-weight: 700; }
+.gallery-card__credit { right: 9px; bottom: 9px; padding: 5px 9px; overflow: hidden; font-size: .72rem; text-overflow: ellipsis; white-space: nowrap; }
+.gallery-card__like { position: absolute; z-index: 2; top: 9px; right: 9px; display: inline-flex; align-items: center; gap: 5px; min-width: 42px; min-height: 34px; padding: 5px 9px; color: #fff; background: rgb(35 45 37 / .78); border: 1px solid rgb(255 255 255 / .35); border-radius: 999px; box-shadow: 0 3px 12px rgb(20 25 21 / .2); backdrop-filter: blur(5px); cursor: pointer; font: inherit; font-size: .8rem; font-weight: 700; transition: transform .15s ease, background .2s ease; }
+.gallery-card__like:hover { transform: scale(1.06); }
+.gallery-card__like:focus-visible { outline: 3px solid #fff; outline-offset: 2px; }
+.gallery-card__like:disabled { cursor: wait; opacity: .7; }
+.gallery-card__like span:first-child { font-size: 1.08rem; line-height: 1; }
+.gallery-card__like--active { color: #fff; background: var(--clay); border-color: rgb(255 255 255 / .55); }
+.gallery-empty { display: grid; place-items: center; min-height: 150px; padding: 24px; text-align: center; color: var(--muted); background: rgb(255 255 255 / .5); border: 1px solid rgb(65 99 72 / .12); border-radius: 14px; }
+.gallery-empty span { font-size: 1.7rem; }
+.gallery-empty p { margin: 6px 0 0; }
+@media (max-width:700px) { .gallery-grid { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 9px; } .gallery-page .block { margin-top: 20px; } .gallery-heading .lead { font-size: 1rem; line-height: 1.65; } .upload-card { margin-bottom: 40px; border-radius: 14px; } .file-picker { min-height: 150px; } }
+@media (prefers-reduced-motion:reduce) { .file-picker, .gallery-card img, .gallery-card__like, .upload-progress__track span { transition: none; } }
