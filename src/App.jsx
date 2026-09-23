@@ -35,7 +35,16 @@ const heroImages = [
 export default function App() {
   const [index, setIndex] = React.useState(0);
   const [unlocked, setUnlocked] = React.useState(false);
+  const [qrPhotoRoute, setQrPhotoRoute] = React.useState(() =>
+    window.location.hash.startsWith("#/share")
+  );
   const { t } = useTranslation();
+
+  React.useEffect(() => {
+    const onHashChange = () => setQrPhotoRoute(window.location.hash.startsWith("#/share"));
+    window.addEventListener("hashchange", onHashChange);
+    return () => window.removeEventListener("hashchange", onHashChange);
+  }, []);
 
   // Slideshow
   React.useEffect(() => {
@@ -106,7 +115,7 @@ React.useEffect(() => {
   return (
     <HashRouter>
       {/* HERO: always show images, but only show title/date once unlocked */}
-      <header className="hero">
+      <header className={`hero ${qrPhotoRoute ? "hero--compact" : ""}`}>
         {heroImages.map((src, i) => (
           <img
             key={src}
@@ -116,7 +125,7 @@ React.useEffect(() => {
           />
         ))}
         <div className="hero-overlay" />
-        {unlocked && (
+        {(unlocked || qrPhotoRoute) && (
           <div className="hero-inner">
             <h1 dangerouslySetInnerHTML={{ __html: t('hero.title') }} />
             <p>
@@ -127,11 +136,13 @@ React.useEffect(() => {
       </header>
 
       {/* Nav only once inside site */}
-      {unlocked && <Nav />}
+      {unlocked && !qrPhotoRoute && <Nav />}
 
       <main className="container">
         <Routes>
-          {!unlocked ? (
+          {qrPhotoRoute ? (
+            <Route path="/share" element={<Gallery qrEntry />} />
+          ) : !unlocked ? (
             // Locked: always show entry gate regardless of hash
             <Route path="*" element={<EntryGate onUnlock={handleUnlock} />} />
           ) : (
@@ -168,7 +179,7 @@ React.useEffect(() => {
         </Routes>
       </main>
 
-      {unlocked && (
+      {(unlocked || qrPhotoRoute) && (
         <footer className="footer" dangerouslySetInnerHTML={{ __html: t('footer.credit') }} />
       )}
     </HashRouter>
