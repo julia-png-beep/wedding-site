@@ -173,6 +173,8 @@ a:hover { color: var(--clay-ink); }
   color: #fff;               /* fix: ensure white text */
   overflow: hidden;
 }
+.hero--compact { min-height: min(42svh, 390px); }
+.hero--compact .hero-inner { transform: none; }
 
 .hero-slide{
   position: absolute; inset: 0;
@@ -802,5 +804,4 @@ body {
     transform: scale(1);
   }
 }
-
 
