@@ -1,7 +1,7 @@
 import React from "react";
 import "./gallery.css";
 
-const PHOTO_API_URL = import.meta.env.VITE_PHOTO_API_URL || "";
+const PHOTO_API_URL = import.meta.env.VITE_PHOTO_API_URL || "https://script.google.com/macros/s/AKfycbzxdOWQpYc4guozrWXR-CuG2P0hvfaTq4tkNB2SU3oamf1lLiWFDmM5JNrTfowpBZnKtA/exec";
 const CHUNK_SIZE = 2 * 1024 * 1024;
 
 function readAsBase64(blob) {
