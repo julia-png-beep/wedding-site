@@ -45,15 +45,63 @@ function getGuestId() {
   }
 }
 
-function MediaCard({ item, onToggleLike, liking }) {
+function readGuestName() {
+  try { return localStorage.getItem("wedding-gallery-guest-name") || ""; } catch { return ""; }
+}
+
+function GalleryDialog({ title, onClose, children }) {
+  const ref = React.useRef(null);
+  const titleId = React.useId();
+  React.useEffect(() => {
+    const dialog = ref.current;
+    const previousFocus = document.activeElement;
+    const previousOverflow = document.body.style.overflow;
+    dialog.showModal();
+    document.body.style.overflow = "hidden";
+    return () => {
+      dialog.close();
+      document.body.style.overflow = previousOverflow;
+      previousFocus?.focus?.();
+    };
+  }, []);
+  return <dialog ref={ref} className="gallery-dialog" aria-labelledby={titleId}
+    onCancel={(event) => { event.preventDefault(); onClose(); }}
+    onClick={(event) => { if (event.target === ref.current) onClose(); }}>
+    <div className="gallery-dialog__inner">
+      <header className="gallery-dialog__header"><h3 id={titleId}>{title}</h3><button type="button" onClick={onClose} autoFocus aria-label="Close viewer">✕</button></header>
+      {children}
+    </div>
+  </dialog>;
+}
+
+function LikeNames({ item }) {
+  const names = item.likedBy || [];
+  const anonymous = item.anonymousLikes ?? Math.max(0, Number(item.likes || 0) - names.length);
+  return <div className="gallery-like-names">
+    {names.length > 0 && <ul>{names.map((name, i) => <li key={i}>{name}</li>)}</ul>}
+    {anonymous > 0 && <p>{anonymous} earlier {anonymous === 1 ? "like" : "likes"} without a saved name.</p>}
+    {!Number(item.likes) && <p>No likes yet. Be the first!</p>}
+  </div>;
+}
+
+function LargePreview({ item }) {
+  const [failed, setFailed] = React.useState(false);
+  const [fallback, setFallback] = React.useState(false);
+  const preview = item.previewUrl || item.thumbnailUrl?.replace(/=s\d+$/, "=s2000");
+  if (!preview || failed) return <p className="gallery-empty">This preview isn’t available yet. Please try again shortly.</p>;
+  return <img className="gallery-dialog__image" src={fallback ? item.thumbnailUrl : preview}
+    alt={item.name || "Wedding moment"} onError={() => { if (!fallback && item.thumbnailUrl && preview !== item.thumbnailUrl) setFallback(true); else setFailed(true); }} />;
+}
+
+function MediaCard({ item, onToggleLike, liking, onOpen, onShowLikes }) {
   const isVideo = item.mimeType?.startsWith("video/");
   return (
     <article className="gallery-card sparkle">
-      <a className="gallery-card__media" href={item.viewUrl} target="_blank" rel="noreferrer" aria-label={`Open ${item.name || (isVideo ? "video" : "photo")}`}>
+      <button type="button" className="gallery-card__media" onClick={() => onOpen(item.id)} aria-label={`Enlarge ${item.name || (isVideo ? "video thumbnail" : "photo")}`}>
         {item.thumbnailUrl ? <img src={item.thumbnailUrl} alt="" loading="lazy" /> : <div className="gallery-card__fallback" aria-hidden="true">{isVideo ? "▶" : "✦"}</div>}
         {isVideo && <span className="gallery-card__video">▶ Video</span>}
         {item.uploader && <span className="gallery-card__credit">By {item.uploader}</span>}
-      </a>
+      </button>
       <button
         className={`gallery-card__like ${item.liked ? "gallery-card__like--active" : ""}`}
         type="button"
@@ -65,12 +113,13 @@ function MediaCard({ item, onToggleLike, liking }) {
         <span aria-hidden="true">{item.liked ? "♥" : "♡"}</span>
         <span>{Number(item.likes || 0)}</span>
       </button>
+      <button type="button" className="gallery-card__who" onClick={() => onShowLikes(item.id)} aria-label={`See who liked ${item.name || "this moment"}`}>Who liked this?</button>
     </article>
   );
 }
 
 export default function Gallery({ qrEntry = false }) {
-  const [name, setName] = React.useState("");
+  const [name, setName] = React.useState(readGuestName);
   const [files, setFiles] = React.useState([]);
   const [items, setItems] = React.useState([]);
   const [loadingGallery, setLoadingGallery] = React.useState(Boolean(PHOTO_API_URL));
@@ -79,6 +128,9 @@ export default function Gallery({ qrEntry = false }) {
   const [status, setStatus] = React.useState("");
   const [error, setError] = React.useState("");
   const [likingIds, setLikingIds] = React.useState(() => new Set());
+  const [modal, setModal] = React.useState(null);
+  const [likeError, setLikeError] = React.useState("");
+  const pendingLikes = React.useRef(new Set());
   const fileInputRef = React.useRef(null);
   const guestIdRef = React.useRef(getGuestId());
 
@@ -95,19 +147,27 @@ export default function Gallery({ qrEntry = false }) {
   }, []);
 
   React.useEffect(() => { loadGallery(); }, [loadGallery]);
+  React.useEffect(() => {
+    try { localStorage.setItem("wedding-gallery-guest-name", name.trim()); } catch { /* Private browsing may disable storage. */ }
+  }, [name]);
+  const activeItem = items.find((item) => item.id === modal?.id);
 
   async function toggleLike(item) {
-    if (likingIds.has(item.id)) return;
+    if (pendingLikes.current.has(item.id)) return;
+    setLikeError("");
     const liked = !item.liked;
+    if (liked && !name.trim()) { setModal({ kind: "name", id: item.id }); return; }
+    pendingLikes.current.add(item.id);
     setLikingIds((current) => new Set(current).add(item.id));
     setItems((current) => current.map((entry) => entry.id === item.id ? { ...entry, liked, likes: Math.max(0, Number(entry.likes || 0) + (liked ? 1 : -1)) } : entry));
     try {
-      const data = await callPhotoApi({ action: "toggleLike", fileId: item.id, guestId: guestIdRef.current, liked });
-      setItems((current) => current.map((entry) => entry.id === item.id ? { ...entry, liked: data.liked, likes: data.likes } : entry));
+      const data = await callPhotoApi({ action: "toggleLike", fileId: item.id, guestId: guestIdRef.current, guestName: name.trim(), liked });
+      setItems((current) => current.map((entry) => entry.id === item.id ? { ...entry, liked: data.liked, likes: data.likes, likedBy: data.likedBy, anonymousLikes: data.anonymousLikes } : entry));
     } catch (err) {
       setItems((current) => current.map((entry) => entry.id === item.id ? { ...entry, liked: item.liked, likes: item.likes } : entry));
-      setError(err.message || "That like could not be saved. Please try again.");
+      setLikeError(err.message || "That like could not be saved. Please try again.");
     } finally {
+      pendingLikes.current.delete(item.id);
       setLikingIds((current) => { const next = new Set(current); next.delete(item.id); return next; });
     }
   }
@@ -167,7 +227,8 @@ export default function Gallery({ qrEntry = false }) {
 
         <form className="upload-card" onSubmit={handleUpload}>
           <label htmlFor="uploader-name">Your name</label>
-          <input id="uploader-name" type="text" value={name} onChange={(event) => setName(event.target.value)} placeholder="e.g. Alex & Sam" autoComplete="name" disabled={uploading} />
+          <input id="uploader-name" type="text" maxLength={80} value={name} onChange={(event) => setName(event.target.value)} placeholder="e.g. Alex & Sam" autoComplete="name" disabled={uploading} />
+          <p className="gallery-name-note">Your name will appear with your uploads and likes.</p>
           <label className="file-picker" htmlFor="wedding-media">
             <span className="file-picker__icon" aria-hidden="true">＋</span>
             <strong>Choose photos or videos</strong>
@@ -183,9 +244,23 @@ export default function Gallery({ qrEntry = false }) {
 
         <div className="shared-gallery">
           <div className="shared-gallery__heading"><h3>Shared moments</h3>{items.length > 0 && <span>{items.length} {items.length === 1 ? "upload" : "uploads"}</span>}</div>
-          {loadingGallery ? <p className="gallery-empty">Gathering everyone’s photos…</p> : items.length ? <div className="gallery-grid">{items.map((item) => <MediaCard key={item.id} item={item} onToggleLike={toggleLike} liking={likingIds.has(item.id)} />)}</div> : <div className="gallery-empty"><span aria-hidden="true">🌿</span><p>Be the first to add a moment from the wedding.</p></div>}
+          {likeError && !modal && <p className="upload-message upload-message--error" role="alert">{likeError}</p>}
+          {loadingGallery ? <p className="gallery-empty">Gathering everyone’s photos…</p> : items.length ? <div className="gallery-grid">{items.map((item) => <MediaCard key={item.id} item={item} onToggleLike={toggleLike} liking={likingIds.has(item.id)} onOpen={(id) => setModal({ kind: "photo", id })} onShowLikes={(id) => setModal({ kind: "likes", id })} />)}</div> : <div className="gallery-empty"><span aria-hidden="true">🌿</span><p>Be the first to add a moment from the wedding.</p></div>}
         </div>
       </section>
+      {modal && activeItem && <GalleryDialog onClose={() => setModal(null)} title={modal.kind === "name" ? "Add your name" : modal.kind === "likes" ? "Liked by" : activeItem.mimeType?.startsWith("video/") ? "Video thumbnail" : "A shared moment"}>
+        {modal.kind === "name" ? <form className="gallery-name-form" onSubmit={(event) => { event.preventDefault(); if (name.trim()) { setModal({ kind: "photo", id: activeItem.id }); toggleLike(activeItem); } }}>
+          <p>Your name will be visible to other guests who view the likes.</p>
+          <label htmlFor="like-guest-name">Your name</label>
+          <input id="like-guest-name" required maxLength={80} autoComplete="name" value={name} onChange={(event) => setName(event.target.value)} />
+          <button className="btn" type="submit" disabled={!name.trim()}>Save name &amp; like</button>
+        </form> : <>
+          {modal.kind === "photo" && <><LargePreview key={activeItem.id} item={activeItem} />{activeItem.uploader && <p>Shared by {activeItem.uploader}</p>}</>}
+          <button className="gallery-dialog__like" type="button" aria-pressed={Boolean(activeItem.liked)} disabled={likingIds.has(activeItem.id)} onClick={() => toggleLike(activeItem)}>{activeItem.liked ? "♥ Liked" : "♡ Like"} · {activeItem.likes || 0}</button>
+          {modal.kind === "photo" ? <details className="gallery-like-details"><summary>Who liked this?</summary><LikeNames item={activeItem} /></details> : <LikeNames item={activeItem} />}
+        </>}
+        {likeError && <p role="alert" className="upload-message upload-message--error">{likeError}</p>}
+      </GalleryDialog>}
     </main>
   );
 }

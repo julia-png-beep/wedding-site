@@ -83,7 +83,7 @@ function listGallery_(guestId) {
   const files = JSON.parse(response.getContentText()).files || [];
   const safeGuestId = sanitizeGuestId_(guestId);
   const likeProperties = PropertiesService.getScriptProperties().getProperties();
-  return { ok: true, items: files.map(function(file) { return normaliseFile_(file, safeGuestId, likeProperties); }) };
+  return { ok: true, namedLikes: true, items: files.map(function(file) { return normaliseFile_(file, safeGuestId, likeProperties); }) };
 }
 
 function toggleLike_(payload) {
@@ -107,11 +107,14 @@ function toggleLike_(payload) {
     const guests = JSON.parse(properties.getProperty(key) || "[]");
     const existingIndex = guests.indexOf(guestId);
     const shouldLike = payload.liked !== false;
+    const guestName = sanitizeText_(payload.guestName || "", 80);
+    // Preserve legacy anonymous likes. New clients provide a display name.
+    if (shouldLike && guestName) properties.setProperty("guestName:" + guestId, guestName);
     if (shouldLike && existingIndex === -1) guests.push(guestId);
     if (!shouldLike && existingIndex !== -1) guests.splice(existingIndex, 1);
     if (guests.length) properties.setProperty(key, JSON.stringify(guests));
     else properties.deleteProperty(key);
-    return { ok: true, likes: guests.length, liked: guests.indexOf(guestId) !== -1 };
+    return Object.assign({ ok: true }, likeSummary_(guests, guestId, properties.getProperties()));
   } finally {
     lock.releaseLock();
   }
@@ -137,10 +140,19 @@ function normaliseFile_(file, guestId, likeProperties) {
     size: Number(file.size || 0),
     createdTime: file.createdTime,
     uploader: (file.appProperties && file.appProperties.uploader) || "",
-    likes: likedBy.length,
-    liked: Boolean(guestId && likedBy.indexOf(guestId) !== -1),
+    ...likeSummary_(likedBy, guestId, likeProperties || {}),
     thumbnailUrl: file.thumbnailLink ? file.thumbnailLink.replace(/=s\d+$/, "=s1200") : "",
-    viewUrl: file.webViewLink || ("https://drive.google.com/file/d/" + file.id + "/view"),
+    previewUrl: file.thumbnailLink ? file.thumbnailLink.replace(/=s\d+$/, "=s2000") : "",
+  };
+}
+
+function likeSummary_(guests, guestId, properties) {
+  const names = guests.map(function(id) { return properties["guestName:" + id] || ""; }).filter(Boolean);
+  return {
+    likes: guests.length,
+    liked: Boolean(guestId && guests.indexOf(guestId) !== -1),
+    likedBy: names,
+    anonymousLikes: guests.length - names.length,
   };
 }
 
